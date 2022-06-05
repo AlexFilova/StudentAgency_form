@@ -5,7 +5,9 @@ import Footer from './components/mainComponents/footer/Footer';
 import './App.css';
 
 const App = () => {
-console.log('render');
+
+// console.log('render');
+
   return (
       <div>
         <Header/>
