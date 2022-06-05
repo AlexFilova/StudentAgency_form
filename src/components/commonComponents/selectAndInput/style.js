@@ -1,0 +1,105 @@
+import styled from 'styled-components';
+import Select from 'react-select';
+import { LabelParagraphFont, PlaceholderParagraphFont, WriteInputStyleFont } from '../../../styles/fontStyles';
+import {bordergrey, darkgrey, blueGreen} from '../../../styles/colors';
+
+export const SelectBox = styled.div`
+    width: 100%;
+    height: 74px;
+    border: 1px solid ${bordergrey};
+    border-radius: .5rem;
+    margin-bottom: 16px;
+
+    &:focus-within {
+        outline: none;
+        border: 1px solid ${blueGreen};
+    }
+`
+export const SelectBoxPrice = styled.div`
+    width: auto;
+    height: 50px;
+    border-radius: 1rem;
+    padding: 2px;
+`
+export const StyledLabel = styled.label`
+    ${LabelParagraphFont};
+    display: block;
+    width: 100%;
+    margin: 12px 0 0 15px;
+    text-align: left;
+`
+
+export const StyledSelect = styled(Select)`
+    margin: 4px 0 0px 4px;
+    font-size: 1rem;
+    font-weight: 400;
+    .css-1s2u09g-control {
+        width: 100%;
+        min-height: 30px;
+        background-color: transparent;
+        border: 0;
+        color: ${darkgrey};
+    }
+    .Select__control.Select__control--is-focused.css-1pahdxg-control{
+        background-color: transparent;
+        border: 0;
+        min-height: 30px;
+        -moz-box-shadow: none;
+        -goog-ms-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            border: 0;
+            min-height: 30px;
+            -moz-box-shadow: none;
+            -goog-ms-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+    }
+    .css-14el2xx-placeholder{
+        ${PlaceholderParagraphFont}
+    }
+    .css-1okebmr-indicatorSeparator {
+        display: none;
+    }
+    .css-tlfecz-indicatorContainer {
+        position: absolute;
+        top:-30%;
+        right:5%;
+        padding:0;
+    }
+    .css-1gtu0rj-indicatorContainer {
+        position: absolute;
+        top:-30%;
+        right:5%;
+        padding:0;
+
+        &:hover,
+        &:active,
+        &:focus {
+            position: absolute;
+            top:-30%;
+            right:5%;
+            padding:0;
+        }
+    }
+`
+
+export const StyledInput = styled.input`
+    ${WriteInputStyleFont}
+    border: none;
+    margin: 10px 0 0px 13px;
+    font-family: 'Signika', sans-serif;
+
+    *&:focus{
+        outline: none;
+    }
+
+    &::placeholder {
+        ${PlaceholderParagraphFont};
+      }
+`
