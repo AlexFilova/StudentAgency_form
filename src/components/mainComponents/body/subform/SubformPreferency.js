@@ -8,6 +8,10 @@ import BigToggle from '../../../commonComponents/toggle/BigToggle';
 import Time from '../../../commonComponents/time/Time';
 
 const SubformPreferency = ({
+    designToggleBtnOne,
+    designToggleBtnTwo,
+    setdesignToggleBtnOne,
+    setdesignToggleBtnTwo,
     onBlurValLocality,
     valCountry,
     onChangeValCountry,
@@ -22,11 +26,9 @@ const SubformPreferency = ({
     timeError,
     stateError,
 }) => {
-
+    console.log('Render subform');
     const { t } = useTranslation();
 
-    const [designToggleBtnOne, setdesignToggleBtnOne] = useState(true);
-    const [designToggleBtnTwo, setdesignToggleBtnTwo] = useState(false);
     const [optionsEuCountries, setOptionsEuCountries] = useState('');
     const [optionsUsaStates, setOptionsUsaStates] = useState('');
     const [optionsJobs, setOptionsJobs] = useState('');

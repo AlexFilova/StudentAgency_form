@@ -45,6 +45,7 @@ const defaultValuesTimeButton = [
 ]
 
 const Form = () => {
+    console.log('Render Form');
 
     const { t } = useTranslation();
 
@@ -53,6 +54,8 @@ const Form = () => {
     // console.log(formValues);
     console.log('formValues.phone');
     console.log(formValues.phone);
+    const [designToggleBtnOne, setdesignToggleBtnOne] = useState(true);
+    const [designToggleBtnTwo, setdesignToggleBtnTwo] = useState(false);
 
     const [btnStates, setBtnStates] = useState(defaultValuesTimeButton); 
     const [firstPageErrors, setFirstPageErrors] = useState({});
@@ -201,6 +204,10 @@ const Form = () => {
     const PageDisplay = () => {
         if (page === 0) {
             return <SubformPreferency
+                        designToggleBtnOne={designToggleBtnOne}
+                        designToggleBtnTwo={designToggleBtnTwo}
+                        setdesignToggleBtnOne={setdesignToggleBtnOne}
+                        setdesignToggleBtnTwo={setdesignToggleBtnTwo}
                         onBlurValLocality={(e) => handleToggleButtonEvent(e, 'locality')}
                         valCountry={formValues.localitySpecificationEu}
                         onChangeValCountry={(e) => handleToggleRelatedEvent(e, 'localitySpecificationEu', 'localitySpecificationUsa')}
