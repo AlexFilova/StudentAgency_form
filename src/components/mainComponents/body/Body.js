@@ -4,7 +4,7 @@ import internshipStudy from './../../../images/study_in_abroad.svg';
 import Form from "./form/Form";
 import { useTranslation } from "react-i18next";
 
-function Main () {
+const Main = () => {
 
     const { t } = useTranslation();
 
