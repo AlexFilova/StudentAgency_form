@@ -25,7 +25,7 @@ export const StyledToggleButton= styled.button`
     background: ${props => props.design ? `${blueGreen}` : `${lightgrey}` };
     background: ${props => props.design ? `${linearGradient}` : `${lightgrey}` };
     box-shadow: ${props => props.design ? `${shadowToggle}` : 'none' };
-    transition: width .5s, height .5s, border-radius .1s;
+    transition: width .5s, height .5s;
 
     &:hover,
     &:active{

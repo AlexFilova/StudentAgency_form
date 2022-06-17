@@ -1,22 +1,21 @@
 import styled from 'styled-components';
-import {commonHeight} from '../../../styles/styles';
 
 export const MainWrapper = styled.main`
-    margin-top: 40px;
+    margin: 40px 0;
 `
-export const FormContainer = styled.div`
+export const FormContainer = styled.section`
     width: 55%;
-    height: ${commonHeight};
+    height: auto;
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     flex-wrap: nowrap;
 `
-export const SubContainerPicture = styled.div`
+export const PictureContainer = styled.section`
     width: 40%;
-    height: ${commonHeight};
+    height: 900px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: start;
     flex-wrap: nowrap;
 `

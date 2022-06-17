@@ -3,7 +3,7 @@ import { FlexWrapDivStyle } from '../../../styles/styles';
 import { grey } from '../../../styles/colors';
 import { device } from '../../../styles/responsivity';
 
-export const FooterSection = styled.div`
+export const FooterSection = styled.footer`
     max-width: 1440px;
     margin: 0 auto;
 `

@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 import Select from 'react-select';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 import { LabelParagraphFont, PlaceholderParagraphFont, WriteInputStyleFont } from '../../../styles/fontStyles';
-import {bordergrey, darkgrey, blueGreen} from '../../../styles/colors';
+import {redPink, bordergrey, darkgrey, blueGreen} from '../../../styles/colors';
 
+export const StyledErrorMessage = styled.span`
+    color: ${redPink};
+`
 export const SelectBox = styled.div`
     width: 100%;
     height: 74px;
@@ -15,7 +20,7 @@ export const SelectBox = styled.div`
         border: 1px solid ${blueGreen};
     }
 `
-export const SelectBoxPrice = styled.div`
+export const SelectBoxTime = styled.div`
     width: auto;
     height: 50px;
     border-radius: 1rem;
@@ -102,4 +107,47 @@ export const StyledInput = styled.input`
     &::placeholder {
         ${PlaceholderParagraphFont};
       }
+
+    &:invalid ~ span {
+        display: block;
+    }
 `
+export const StyledPhoneInput = styled(PhoneInput)`
+    margin: 8px 16px;
+    border: none;
+
+    .PhoneInputCountrySelect {
+        padding: 4px;
+        width: auto;
+        height: auto;
+    }
+
+    .PhoneInputCountryIcon--border {
+        box-shadow: 0 0 0 1px ${bordergrey};
+    }
+
+    .PhoneInputCountrySelect:focus + .PhoneInputCountryIcon--border{
+        box-shadow: 0 0 0 1px ${bordergrey};
+    }
+  
+    .PhoneInputCountrySelectArrow {
+        width: 7px;
+        height: 7px;
+        margin-left: 9px;
+        margin-bottom: 2px;
+        border-bottom-width: 2px;
+        border-right-width: 2px;
+    }
+    .PhoneInputCountrySelect:focus + .PhoneInputCountryIcon + .PhoneInputCountrySelectArrow {
+        color: ${bordergrey};
+    }
+    .PhoneInputInput {
+        ${WriteInputStyleFont}
+        border: none;
+        margin-left: 4px;
+
+        *&:focus{
+            outline: none;
+        }
+    }
+    `

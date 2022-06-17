@@ -1,11 +1,11 @@
 import styled, {css} from 'styled-components';
-import {FlexNoWrapDivStyle, commonHeight} from '../../../../styles/styles';
-import {white, darkgrey, darkOrange, ultralightOrange} from '../../../../styles/colors';
+import {FlexNoWrapDivStyle} from '../../../../styles/styles';
+import {white, darkgrey, darkOrange, ultralightOrange, darkPinkRed, blueGreen, shadowButton} from '../../../../styles/colors';
 import {CommonFont} from '../../../../styles/fontStyles'
 
 export const FormWrapper = styled.div`
     width: 75%;
-    height: ${commonHeight};
+    height: auto;
 `
 export const ProgressBar = styled(FlexNoWrapDivStyle)`
     width: 90px;
@@ -36,6 +36,7 @@ export const StyledButtonContainer = styled(FlexNoWrapDivStyle)`
     margin-bottom: 159px;
 `
 export const StyledButtonWrapper = styled(FlexNoWrapDivStyle)`
+    justify-constent: ${props => props.endJustified ? 'end' : 'start'};
     margin: 0;
     padding: 0;
     width: 50%;
@@ -43,9 +44,24 @@ export const StyledButtonWrapper = styled(FlexNoWrapDivStyle)`
 `
 export const StyledButton = styled.button`
     ${CommonFont};
-    color: ${white};
-    width: 124px;
+    width: ${props => props.backBtn ? '90px ': '160px'};
     height: 59px;
+    color: ${white};
+    background-color: ${props => props.backBtn ? `${darkPinkRed}`: `${blueGreen}`};
     border-radius: 6.25rem;
     border: none;
+    box-shadow: ${props => props.submitBtn && `${shadowButton}`};
+`
+export const StyledNextButton = styled.button`
+    ${CommonFont};
+    // position: absolute;
+    // right: 0;
+    // bottom: -127px;
+    color: ${white};
+    width: 160px;
+    height: 59px;
+    background-color: ${darkgrey};
+    border-radius: 6.25rem;
+    border: none;
+    box-shadow: ${shadowButton};
 `

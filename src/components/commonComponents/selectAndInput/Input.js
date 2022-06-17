@@ -1,15 +1,20 @@
-import { SelectBox, StyledLabel, StyledInput } from "./style";
+import { StyledErrorMessage, SelectBox, StyledLabel, StyledInput } from "./style";
 
-function Input ({inputLabel, type, id, placeholder, htmlFor }) {
+const Input = ({inputLabel, type, errorMessage, id, placeholder, htmlFor, value, onChange }) => {
     return (
-    <SelectBox>
-        <StyledLabel htmlFor={htmlFor}>{inputLabel}</StyledLabel>
-        <StyledInput
-            type={type}
-            id={id}
-            placeholder={placeholder}
-        />
-    </SelectBox>
+            <>
+            <StyledErrorMessage>{errorMessage}</StyledErrorMessage>
+            <SelectBox>
+                <StyledLabel htmlFor={htmlFor}>{inputLabel}</StyledLabel>
+                <StyledInput
+                    type={type}
+                    id={id}
+                    placeholder={placeholder}
+                    value={value}
+                    onChange={onChange}
+                />
+            </SelectBox>
+            </>
     );
 }
 

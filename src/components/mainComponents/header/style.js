@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FlexNoWrapDivStyle } from '../../../styles/styles';
 import { ultralightgrey, darkgrey, strongdakrgrey, shadow } from '../../../styles/colors';
 
-export const HeaderSection = styled.div`
+export const HeaderSection = styled.header`
     width: auto;
     min-height: 24px;
     color: ${darkgrey};

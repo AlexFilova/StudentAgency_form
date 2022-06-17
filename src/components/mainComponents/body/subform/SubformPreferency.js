@@ -5,16 +5,28 @@ import { useTranslation } from "react-i18next";
 import Select from '../../../commonComponents/selectAndInput/Select';
 import { SubFormContainer } from './style';
 import BigToggle from '../../../commonComponents/toggle/BigToggle';
-import Price from '../../../commonComponents/price/Price';
-import ErrorMessage from '../../../commonComponents/ErrorMessage';
+import Time from '../../../commonComponents/time/Time';
 
-const SubformPreferency = () => {
+const SubformPreferency = ({
+    onBlurValLocality,
+    valCountry,
+    onChangeValCountry,
+    valState,
+    onChangeValState,
+    valWork,
+    onChangeValWork,
+    onClickValTime,
+    btnStates,
+    countryError,
+    jobError,
+    timeError,
+    stateError,
+}) => {
 
     const { t } = useTranslation();
 
     const [designToggleBtnOne, setdesignToggleBtnOne] = useState(true);
     const [designToggleBtnTwo, setdesignToggleBtnTwo] = useState(false);
-
     const [optionsEuCountries, setOptionsEuCountries] = useState('');
     const [optionsUsaStates, setOptionsUsaStates] = useState('');
     const [optionsJobs, setOptionsJobs] = useState('');
@@ -50,7 +62,6 @@ const SubformPreferency = () => {
         };
         getData()
       },[]);
-      
     
     return ( 
         <SubFormContainer>
@@ -60,6 +71,7 @@ const SubformPreferency = () => {
                 designToggleBtnTwo={designToggleBtnTwo}
                 setdesignToggleBtnOne={setdesignToggleBtnOne}
                 setdesignToggleBtnTwo={setdesignToggleBtnTwo}
+                onBlurValLocality={onBlurValLocality}
             />
             <div>
                 <SmallTitleFont>{t('internship.preferency')}</SmallTitleFont>
@@ -70,6 +82,9 @@ const SubformPreferency = () => {
                      selectLabel={t('internship.labelCountry')}
                      placeholder={t('internship.palceholderCountry')}
                      options={optionsEuCountries}
+                     value={valCountry}
+                     onChange={onChangeValCountry}
+                     errorMessage={countryError}
                      />
                     :
                     <Select
@@ -78,6 +93,9 @@ const SubformPreferency = () => {
                     selectLabel={t('internship.labelState')}
                     placeholder={t('internship.palceholderState')}
                     options={optionsUsaStates}
+                    value={valState}
+                    onChange={onChangeValState}
+                    errorMessage={stateError}
                     />
                 }
                 <Select
@@ -86,11 +104,21 @@ const SubformPreferency = () => {
                     selectLabel={t('internship.labelWorkArea')}
                     placeholder={t('internship.palceholderWorkArea')}
                     options={optionsJobs}
+                    value={valWork}
+                    onChange={onChangeValWork}
+                    errorMessage={jobError}
                     />
-                <ErrorMessage>{t('errorMessages.missingCoutry')}</ErrorMessage>
             </div>
             <SmallTitleFont>{t('internship.time.timeTitle')}</SmallTitleFont>
-            <Price />
+            <Time
+                onClick={onClickValTime}
+                btnStates={btnStates}
+                errorMessage={timeError}
+            />
+        {/* <StyledNextButton
+            onClick={goToNext}
+        >
+            {t('buttons.next')}</StyledNextButton> */}
         </SubFormContainer>
     );
 }

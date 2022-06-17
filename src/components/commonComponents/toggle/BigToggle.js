@@ -3,9 +3,7 @@ import { ToggleConatiner, StyledToggleButton, IconContainer, IconEU, IconUSA, Ic
 import { ToggleParagraphFont } from "../../../styles/fontStyles";
 import { useTranslation } from 'react-i18next';
 
-const BigToggle = ({designToggleBtnOne, setdesignToggleBtnOne, designToggleBtnTwo, setdesignToggleBtnTwo}) => {
-    console.log('render BiggToggle');
-
+const BigToggle = ({designToggleBtnOne, setdesignToggleBtnOne, designToggleBtnTwo, setdesignToggleBtnTwo, onBlurValLocality}) => {
     const { t } = useTranslation();
 
     return (
@@ -14,10 +12,12 @@ const BigToggle = ({designToggleBtnOne, setdesignToggleBtnOne, designToggleBtnTw
                 name='toggleOne'
                 design={designToggleBtnOne === true ? 'design' : ''}
                 primary={true}
+                value='EU'
                 onClick={() => {
                     setdesignToggleBtnOne(true);
                     setdesignToggleBtnTwo(false)
                 }}
+                onBlur={onBlurValLocality}
             >
                 <IconContainer design={designToggleBtnOne === true ? 'design' : ''}>
                     <IconEU design={designToggleBtnOne === true ? 'design' : ''}/>
@@ -30,11 +30,12 @@ const BigToggle = ({designToggleBtnOne, setdesignToggleBtnOne, designToggleBtnTw
             <StyledToggleButton
                 name='toggleTwo'
                 design={designToggleBtnTwo === true ? 'design' : ''}
+                value='USA'
                 onClick={() => {
                     setdesignToggleBtnOne(false);
-                    setdesignToggleBtnTwo(true)
-                
+                    setdesignToggleBtnTwo(true)                
                 }}
+                onBlur={onBlurValLocality}
                 >
                 <IconContainer design={designToggleBtnTwo === true ? 'design' : ''}>
                     <IconUSA design={designToggleBtnTwo === true ? 'design' : ''} />
