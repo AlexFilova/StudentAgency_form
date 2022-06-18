@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
 import {fetchData} from '../../../../api/apiCall';
 import Select from '../../../commonComponents/selectAndInput/Select';
-import {SubFormContainer} from './style';
+import {StyledSubFormContainer} from './style';
 import BigToggle from '../../../commonComponents/toggle/BigToggle';
 import Time from '../../../commonComponents/time/Time';
 
@@ -67,7 +67,7 @@ const SubformPreferency = ({
       },[]);
     
     return ( 
-        <SubFormContainer>
+        <StyledSubFormContainer>
             <SubFormTitleFont>{t('titles.titleSubformFirst')}</SubFormTitleFont>
             <BigToggle
                 designToggleBtnOne={designToggleBtnOne}
@@ -121,7 +121,7 @@ const SubformPreferency = ({
                 btnStates={btnStates}
                 errorMessage={timeError}
             />
-        </SubFormContainer>
+        </StyledSubFormContainer>
     );
 }
 

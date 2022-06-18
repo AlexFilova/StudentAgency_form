@@ -1,6 +1,6 @@
 import {useTranslation} from "react-i18next";
-import {FormContainer, PictureContainer, MainWrapper, MainImg} from "./style";
-import {Container, SpecialContainer} from "../../../styles/styles";
+import {StyledFormContainer, StyledPictureContainer, StyledMainWrapper, StyledMainImg} from "./style";
+import {StyledContainer, StyledSubContainer} from "../../../styles/styles";
 import internshipStudy from './../../../images/study_in_abroad.svg';
 import Form from "./form/Form";
 
@@ -9,18 +9,18 @@ const Main = () => {
     const { t } = useTranslation();
 
     return ( 
-        <MainWrapper>
-            <Container>
-                <SpecialContainer>
-                    <FormContainer>
+        <StyledMainWrapper>
+            <StyledContainer>
+                <StyledSubContainer>
+                    <StyledFormContainer>
                         <Form />
-                    </FormContainer>
-                    <PictureContainer>
-                            <MainImg src={internshipStudy} alt={t('imagesAlt.internshipStudy')} />
-                    </PictureContainer>
-                </SpecialContainer>
-            </Container>
-        </MainWrapper>
+                    </StyledFormContainer>
+                    <StyledPictureContainer>
+                            <StyledMainImg src={internshipStudy} alt={t('imagesAlt.internshipStudy')} />
+                    </StyledPictureContainer>
+                </StyledSubContainer>
+            </StyledContainer>
+        </StyledMainWrapper>
     );
 }
 

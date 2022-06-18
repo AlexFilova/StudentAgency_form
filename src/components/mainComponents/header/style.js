@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { FlexNoWrapDivStyle } from '../../../styles/styles';
+import {SpaceBetweenCenterNoWrapStyle} from '../../../styles/styles';
 import { ultralightgrey, darkgrey, strongdakrgrey, shadow } from '../../../styles/colors';
 
-export const HeaderSection = styled.header`
+export const StyledHeaderSection = styled.header`
     width: auto;
     min-height: 24px;
     color: ${darkgrey};
@@ -11,14 +11,16 @@ export const HeaderSection = styled.header`
     background-color: ${ultralightgrey};
     box-shadow: ${shadow};
 `
-export const HeaderElement = styled(FlexNoWrapDivStyle)`
+export const StyledHeaderElement = styled.div`
+    ${SpaceBetweenCenterNoWrapStyle}
     width: 150px;
 `
 export const StyledIcon = styled.div`
     width: 30px;
     height: 30px;
 `
-export const StyledTranslator = styled(FlexNoWrapDivStyle)`
+export const StyledTranslator = styled.div`
+    ${SpaceBetweenCenterNoWrapStyle}
     width: 70px;
     height: 30px;
     line-height: 32.5px;

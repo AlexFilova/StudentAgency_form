@@ -1,5 +1,5 @@
 import PropTypes, {shape, array, number, bool} from 'prop-types';
-import {TimeContainer, TimeBox} from "./style";
+import {StyledTimeContainer, StyledTimeBox} from "./style";
 import {StyledErrorMessage} from "../selectAndInput/style";
 import {useTranslation} from "react-i18next";
 
@@ -12,55 +12,55 @@ const Time = ({onClick, btnStates, errorMessage}) => {
     return (
         <>
         <StyledErrorMessage>{errorMessage}</StyledErrorMessage>
-        <TimeContainer>
-            <TimeBox
+        <StyledTimeContainer>
+            <StyledTimeBox
                 id={1}
                 value='1 month'
                 timeDesign={truthyFalsyTime[0] === true ? 'timeDesign' : ''}
                 onClick={onClick}
             >
                 {t('internship.time.oneMonth')}
-            </TimeBox>
-            <TimeBox
+            </StyledTimeBox>
+            <StyledTimeBox
                 id={2}
                 value='3 months'
                 timeDesign={truthyFalsyTime[1] === true ? 'timeDesign' : ''}
                 onClick={onClick}
             >
                 {t('internship.time.quarter')}
-            </TimeBox>
-            <TimeBox
+            </StyledTimeBox>
+            <StyledTimeBox
                 id={3}
                 value='6 months'
                 timeDesign={truthyFalsyTime[2] === true ? 'timeDesign' : ''}
                 onClick={onClick}
             >
                 {t('internship.time.half')}
-            </TimeBox>
-            <TimeBox
+            </StyledTimeBox>
+            <StyledTimeBox
                 id={4}
                 value='1 year'
                 timeDesign={truthyFalsyTime[3] === true ? 'timeDesign' : ''}
                 onClick={onClick}
             >
                 {t('internship.time.oneYear')}
-            </TimeBox>
-            <TimeBox
+            </StyledTimeBox>
+            <StyledTimeBox
                 id={5}
                 value='2 years'
                 timeDesign={truthyFalsyTime[4] === true ? 'timeDesign' : ''}
                 onClick={onClick}
                     >{t('internship.time.twoYears')}
-                </TimeBox>
-            <TimeBox
+                </StyledTimeBox>
+            <StyledTimeBox
                 id={6}
                 value='4 years'
                 timeDesign={truthyFalsyTime[5] === true ? 'timeDesign' : ''}
                 onClick={onClick}
             >
                 {t('internship.time.fourYears')}
-            </TimeBox>
-        </TimeContainer>
+            </StyledTimeBox>
+        </StyledTimeContainer>
         </>
 
     );

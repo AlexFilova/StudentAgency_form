@@ -1,18 +1,37 @@
 import styled from 'styled-components';
-import { FlexNoWrapDivStyle } from '../../styles/styles';
+import {CenterCenterWrapStyle, StartCenterWrapStyle} from '../../styles/styles';
+import {lightblack} from '../../styles/colors'
 
-//BOX component
 export const StyledBox = styled.div`
+    padding: 0 5px;
+    margin: 0 2%;
     width: 190px;
     display: block;
 `
-//LOGO Component
-export const LogoContainer = styled(FlexNoWrapDivStyle)`
-    width: 100%;
+export const StyledHeaderLogoContainer = styled.div`
+    ${StartCenterWrapStyle}
+    width: 190px;
 `
-export const ContainerFlag = styled.option`
-    width: 26px;
-    height: 30px;
-    margin: 0;
-    padding: 0;
+export const StyledFooterLogoContainer = styled.div`
+    ${CenterCenterWrapStyle}
+    padding: 0 5px;
+    margin: 0 2%;
+    width: 190px;
+    height: 190px;
+`
+export const StyledLinkDiv = styled.div`
+    margin-top: -5px;
+`
+export const StyledLink = styled.a`
+    display: block;
+    text-decoration: none;
+    color: ${lightblack};
+    font-size: 0.9rem;
+    height: 28px;
+
+    p {
+        line-height: 29px;
+        margin: 2px 0;
+    }
+
 `

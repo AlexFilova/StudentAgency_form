@@ -7,7 +7,7 @@ import { FaFlagUsa, FaCheck } from "react-icons/fa";
 const toggleHeight = '140px';
 const transformedtoggleHeight = `${parseFloat(toggleHeight)+4}px`
 
-export const ToggleConatiner = styled.div`
+export const StyledToggleConatiner = styled.div`
     width: 100%;
     height: ${toggleHeight};
     display: flex;
@@ -33,7 +33,7 @@ export const StyledToggleButton= styled.button`
         height: ${transformedtoggleHeight};
     }
 `
-export const IconContainer = styled.div`
+export const StyledIconContainer = styled.div`
     background-color: ${props => props.design ? `${iconDarkBlueGreen}` : `${grey}`};
     width: 60px;
     height: 60px;
@@ -47,13 +47,13 @@ export const Icon = css`
     color: ${props => props.design ? `${white}` : `${darkgrey}`};
     font-size: 1.8rem;
 `
-export const IconEU = styled(GiEuropeanFlag)`
+export const StyledIconEU = styled(GiEuropeanFlag)`
     ${Icon}
 `
-export const IconUSA = styled(FaFlagUsa)`
+export const StyledIconUSA = styled(FaFlagUsa)`
     ${Icon}
 `
-export const IconCheck = styled(FaCheck)`
+export const StyledIconCheck = styled(FaCheck)`
     position: absolute;
     bottom: 15px;
     right: 20px;

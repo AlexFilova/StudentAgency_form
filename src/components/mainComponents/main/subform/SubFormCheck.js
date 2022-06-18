@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {useTranslation} from "react-i18next";
-import {SubFormContainer, BlockWrapper} from './style';
+import {StyledSubFormContainer, StyledBlockWrapper} from './style';
 import {SubFormTitleFont, TitleCheckSubFormFont, ParagraphCheckSubFormFont} from "../../../../styles/fontStyles";
 
 const SubFormCheck = ({
@@ -18,38 +18,38 @@ const SubFormCheck = ({
     const { t } = useTranslation();
 
     return (
-        <SubFormContainer>
+        <StyledSubFormContainer>
              <SubFormTitleFont>{t('titles.titleSubformThird')}</SubFormTitleFont>
-            <BlockWrapper>
+            <StyledBlockWrapper>
                 <TitleCheckSubFormFont>{t('checkInfo.internshipLocality')}</TitleCheckSubFormFont>
                 <ParagraphCheckSubFormFont>{valLocality}</ParagraphCheckSubFormFont>
-            </BlockWrapper>
-            <BlockWrapper>
+            </StyledBlockWrapper>
+            <StyledBlockWrapper>
                 <TitleCheckSubFormFont>{t('checkInfo.coutry')}</TitleCheckSubFormFont>
                 <ParagraphCheckSubFormFont>{valCountry.value}{valState.value}</ParagraphCheckSubFormFont>
-            </BlockWrapper>
-            <BlockWrapper>
+            </StyledBlockWrapper>
+            <StyledBlockWrapper>
                 <TitleCheckSubFormFont>{t('checkInfo.work')}</TitleCheckSubFormFont>
                 <ParagraphCheckSubFormFont>{valWork.value}</ParagraphCheckSubFormFont>
-            </BlockWrapper>
-            <BlockWrapper>
+            </StyledBlockWrapper>
+            <StyledBlockWrapper>
                 <TitleCheckSubFormFont>{t('checkInfo.time')}</TitleCheckSubFormFont>
                 <ParagraphCheckSubFormFont>{valTime}</ParagraphCheckSubFormFont>
-            </BlockWrapper>
-            <BlockWrapper>
+            </StyledBlockWrapper>
+            <StyledBlockWrapper>
                 <TitleCheckSubFormFont>{t('checkInfo.fullName')}</TitleCheckSubFormFont>
                 <ParagraphCheckSubFormFont>{valName} {valLastname}</ParagraphCheckSubFormFont>
-            </BlockWrapper>
-            <BlockWrapper>
+            </StyledBlockWrapper>
+            <StyledBlockWrapper>
                 <TitleCheckSubFormFont>{t('checkInfo.emailAddress')}</TitleCheckSubFormFont>
                 <ParagraphCheckSubFormFont>{valEmail}</ParagraphCheckSubFormFont>
-            </BlockWrapper>
-            <BlockWrapper>
+            </StyledBlockWrapper>
+            <StyledBlockWrapper>
                 <TitleCheckSubFormFont>{t('checkInfo.phone')}</TitleCheckSubFormFont>
                 <ParagraphCheckSubFormFont>{valPhone}</ParagraphCheckSubFormFont>
-            </BlockWrapper>
+            </StyledBlockWrapper>
 
-        </SubFormContainer>
+        </StyledSubFormContainer>
     );
 }
 

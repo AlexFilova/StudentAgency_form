@@ -1,16 +1,16 @@
 import {useTranslation} from 'react-i18next';
 import { 
-    HeaderSection,
-    HeaderElement,
+    StyledHeaderSection,
+    StyledHeaderElement,
     StyledIcon,
     StyledTranslator,
     StyledLink,
     StyledButtonLang,
 } from "./style";
-import {Container} from '../../../styles/styles'
+import {StyledContainer} from '../../../styles/styles'
 import {FaFacebookF, FaInstagram} from 'react-icons/fa';
 import {white, darkOrange, darkgrey} from "../../../styles/colors";
-import LogoComponent from "../../commonComponents/Logo";
+import {LogoHeader} from "../../commonComponents/Logo";
 
 const Header = () => {
 
@@ -23,12 +23,12 @@ const Header = () => {
     const resolved =  i18n.resolvedLanguage;
 
     return (
-            <HeaderSection>
-                <Container>
-                    <HeaderElement>
-                        <LogoComponent />
-                    </HeaderElement>
-                    <HeaderElement>
+            <StyledHeaderSection>
+                <StyledContainer>
+                    <StyledHeaderElement>
+                        <LogoHeader />
+                    </StyledHeaderElement>
+                    <StyledHeaderElement>
                         <StyledIcon>
                             <StyledLink href="https://www.facebook.com" target='_blank'>
                                 <FaFacebookF />
@@ -63,9 +63,9 @@ const Header = () => {
                             ))}
                         </StyledTranslator>
                         
-                    </HeaderElement>
-                </Container>
-            </HeaderSection>   
+                    </StyledHeaderElement>
+                </StyledContainer>
+            </StyledHeaderSection>   
     );
 }
 

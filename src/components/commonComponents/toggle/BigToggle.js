@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
-import {ToggleConatiner, StyledToggleButton, IconContainer, IconEU, IconUSA, IconCheck} from "./style";
+import {StyledToggleConatiner, StyledToggleButton, StyledIconContainer, StyledIconEU, StyledIconUSA, StyledIconCheck} from "./style";
 import {ToggleParagraphFont} from "../../../styles/fontStyles";
 
 const BigToggle = ({
@@ -14,7 +14,7 @@ const BigToggle = ({
     const { t } = useTranslation();
 
     return (
-        <ToggleConatiner>
+        <StyledToggleConatiner>
             <StyledToggleButton
                 name='toggleOne'
                 design={designToggleBtnOne === true ? 'design' : ''}
@@ -26,12 +26,12 @@ const BigToggle = ({
                 }}
                 onBlur={onBlurValLocality}
             >
-                <IconContainer design={designToggleBtnOne === true ? 'design' : ''}>
-                    <IconEU design={designToggleBtnOne === true ? 'design' : ''}/>
-                </IconContainer>
+                <StyledIconContainer design={designToggleBtnOne === true ? 'design' : ''}>
+                    <StyledIconEU design={designToggleBtnOne === true ? 'design' : ''}/>
+                </StyledIconContainer>
                 <ToggleParagraphFont design={designToggleBtnOne === true ? 'design' : ''}>{t('internship.europe')}</ToggleParagraphFont>
                 {designToggleBtnOne === true && designToggleBtnTwo === false
-                && <IconCheck /> 
+                && <StyledIconCheck /> 
                 }
             </StyledToggleButton>
             <StyledToggleButton
@@ -44,16 +44,16 @@ const BigToggle = ({
                 }}
                 onBlur={onBlurValLocality}
                 >
-                <IconContainer design={designToggleBtnTwo === true ? 'design' : ''}>
-                    <IconUSA design={designToggleBtnTwo === true ? 'design' : ''} />
-                </IconContainer>
+                <StyledIconContainer design={designToggleBtnTwo === true ? 'design' : ''}>
+                    <StyledIconUSA design={designToggleBtnTwo === true ? 'design' : ''} />
+                </StyledIconContainer>
                 <ToggleParagraphFont design={designToggleBtnTwo === true ? 'design' : ''}>{t('internship.usa')}</ToggleParagraphFont>
                 {designToggleBtnOne === false && designToggleBtnTwo === true
-                && <IconCheck /> 
+                && <StyledIconCheck /> 
                 }
             </StyledToggleButton>
 
-        </ToggleConatiner>
+        </StyledToggleConatiner>
     );
 }
 

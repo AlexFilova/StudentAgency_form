@@ -1,13 +1,14 @@
 import styled, {css} from 'styled-components';
-import {FlexNoWrapDivStyle} from '../../../../styles/styles';
+import {SpaceBetweenCenterNoWrapStyle} from '../../../../styles/styles';
 import {white, darkgrey, darkOrange, ultralightOrange, darkPinkRed, blueGreen, shadowButton} from '../../../../styles/colors';
 import {CommonFont} from '../../../../styles/fontStyles'
 
-export const FormWrapper = styled.div`
-    width: 75%;
+export const StyledFormWrapper = styled.div`
+    width: 85%;
     height: auto;
 `
-export const ProgressBar = styled(FlexNoWrapDivStyle)`
+export const StyledProgressBar = styled.div`
+    ${SpaceBetweenCenterNoWrapStyle}
     width: 90px;
     height: 20px;
 `
@@ -15,35 +16,36 @@ const Bar = css`
     height: 6px;
     border-radius: 0.625rem;
 `
-export const ActiveBar = styled.div`
+export const StyledActiveBar = styled.div`
     ${Bar}
     width:40px;
     background: ${darkOrange};
     background: linear-gradient(94deg, ${darkOrange} 0%, ${ultralightOrange} 100%);
     
 `
-export const DisActiveBar = styled.div`
+export const StyledDisActiveBar = styled.div`
     ${Bar}
     width:20px;
     background-color: ${darkgrey};
 `
 
-export const StyledButtonContainer = styled(FlexNoWrapDivStyle)`
+export const StyledButtonContainer = styled.div`
+    ${SpaceBetweenCenterNoWrapStyle}
     width: 100%;
     height: 59px;
     justify-content: center;
-    margin-top: 68px;
-    margin-bottom: 159px;
+    margin-top: 50px;
 `
-export const StyledButtonWrapper = styled(FlexNoWrapDivStyle)`
-    justify-constent: ${props => props.endJustified ? 'end' : 'start'};
+export const StyledButtonWrapper = styled.div`
+    ${SpaceBetweenCenterNoWrapStyle}
+    justify-content: ${props => props.endJustified ? 'end' : 'start'};
     margin: 0;
     padding: 0;
     width: 50%;
     height: 59px;
 `
 export const StyledButton = styled.button`
-    ${CommonFont};
+    ${CommonFont}
     width: ${props => props.backBtn ? '90px ': '160px'};
     height: 59px;
     color: ${white};
@@ -53,10 +55,7 @@ export const StyledButton = styled.button`
     box-shadow: ${props => props.submitBtn && `${shadowButton}`};
 `
 export const StyledNextButton = styled.button`
-    ${CommonFont};
-    // position: absolute;
-    // right: 0;
-    // bottom: -127px;
+    ${CommonFont}
     color: ${white};
     width: 160px;
     height: 59px;

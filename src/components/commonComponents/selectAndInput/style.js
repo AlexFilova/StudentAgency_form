@@ -8,7 +8,7 @@ import {redPink, bordergrey, darkgrey, blueGreen} from '../../../styles/colors';
 export const StyledErrorMessage = styled.span`
     color: ${redPink};
 `
-export const SelectBox = styled.div`
+export const StyledSelectBox = styled.div`
     width: 100%;
     height: 74px;
     border: 1px solid ${bordergrey};
@@ -20,12 +20,6 @@ export const SelectBox = styled.div`
         border: 1px solid ${blueGreen};
     }
 `
-export const SelectBoxTime = styled.div`
-    width: auto;
-    height: 50px;
-    border-radius: 1rem;
-    padding: 2px;
-`
 export const StyledLabel = styled.label`
     ${LabelParagraphFont};
     display: block;
@@ -33,7 +27,6 @@ export const StyledLabel = styled.label`
     margin: 12px 0 0 15px;
     text-align: left;
 `
-
 export const StyledSelect = styled(Select)`
     margin: 4px 0 0px 4px;
     font-size: 1rem;

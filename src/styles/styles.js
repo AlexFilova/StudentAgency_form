@@ -1,32 +1,48 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
-export const commonHeight = '800px';
-
-export const FlexWrapDivStyle = styled.div`
+export const CenterCenterWrapStyle = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+`
+export const SpaceBetweenCenterWrapStyle = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 `
-export const FlexWrapStartDivStyle = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    flex-wrap: wrap;
-`
-export const FlexNoWrapDivStyle = styled.div`
+export const SpaceBetweenCenterNoWrapStyle = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
 `
-export const Container = styled(FlexWrapDivStyle)`
+export const SpaceBetweenStartWrapStyle = css`
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+`
+export const StartCenterWrapStyle = css`
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+`
+export const SpaceBetweenStartNoWrapStyle = css`
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: nowrap;
+`
+export const StyledContainer = styled.div`
+    ${SpaceBetweenCenterWrapStyle}
     max-width: 1440px;
     margin: 0 auto;
     padding: 0.5rem 12%;
 `
-export const SpecialContainer = styled(FlexWrapStartDivStyle)`
+export const StyledSubContainer = styled.div`
+    ${SpaceBetweenStartWrapStyle}
     width: 100%;
 `
-
-

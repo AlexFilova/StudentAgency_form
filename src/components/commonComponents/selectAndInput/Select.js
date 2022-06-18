@@ -1,5 +1,5 @@
 import PropTypes, {string, array} from 'prop-types';
-import {SelectBox, StyledLabel, StyledSelect, StyledErrorMessage} from "./style";
+import {StyledSelectBox, StyledLabel, StyledSelect, StyledErrorMessage} from "./style";
 
 const Select = ({
     htmlFor,
@@ -16,7 +16,7 @@ const Select = ({
     return (
         <>
         <StyledErrorMessage>{errorMessage}</StyledErrorMessage>
-        <SelectBox>
+        <StyledSelectBox>
             <StyledLabel htmlFor={htmlFor}>{selectLabel}</StyledLabel>
             <StyledSelect
                 inputId={id}
@@ -27,7 +27,7 @@ const Select = ({
                 value={value}
                 onChange={onChange}
             />
-        </SelectBox> 
+        </StyledSelectBox> 
         </>
     );
 }

@@ -9,7 +9,7 @@ import {getKeyFormValues,
         checkIfEveryElementIsTrue
 } from '../../../../utils/common/functions'
 import {validateFirstPage, validateSecondPage} from '../../../../utils/common/validations'
-import {FormWrapper, ProgressBar, ActiveBar, DisActiveBar, StyledButtonWrapper, StyledButton, StyledNextButton, StyledButtonContainer} from './styles';
+import {StyledFormWrapper, StyledProgressBar, StyledActiveBar, StyledDisActiveBar, StyledButtonWrapper, StyledButton, StyledNextButton, StyledButtonContainer} from './styles';
 import SubFormCheck from '../subform/SubFormCheck';
 import SubformPreferency from '../subform/SubformPreferency';
 import SubFormPersonalInfo from '../subform/SubFormPersonalInfo';
@@ -208,12 +208,14 @@ const Form = () => {
     const subForm = PageDisplay()
     
     return (
-        <FormWrapper key={FormPages[page]}>
-        <ProgressBar>
+        <StyledFormWrapper key={FormPages[page]}>
+        <StyledProgressBar>
             {FormPages.map((formPage) => (
-                page === formPage ? <ActiveBar key={Math.floor(Math.random()*1000)} /> : <DisActiveBar key={Math.floor(Math.random()*100000)}/>
+                page === formPage
+                ? <StyledActiveBar key={Math.floor(Math.random()*1000)} />
+                : <StyledDisActiveBar key={Math.floor(Math.random()*100000)}/>
             ))}
-        </ProgressBar>
+        </StyledProgressBar>
         <form onSubmit={handleSubmit}>
             {subForm}
             <StyledButtonContainer>
@@ -255,7 +257,7 @@ const Form = () => {
                 </StyledButtonWrapper>
             </StyledButtonContainer>
         </form>
-    </FormWrapper>
+    </StyledFormWrapper>
     );
 }
 

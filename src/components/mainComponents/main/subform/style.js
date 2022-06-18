@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const SubFormContainer = styled.div`
+export const StyledSubFormContainer = styled.div`
     width: 100%;
     height: auto;
     margin: 0 auto;
 `
-export const BlockWrapper = styled.div`
+export const StyledBlockWrapper = styled.div`
     width: 100%;
     height: auto;
     margin: 0 auto;

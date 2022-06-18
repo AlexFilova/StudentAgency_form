@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import {useTranslation} from "react-i18next";
 import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
-import {SubFormContainer} from './style';
-import {SelectBox, StyledErrorMessage, StyledLabel, StyledPhoneInput} from "../../../commonComponents/selectAndInput/style";
+import {StyledSubFormContainer} from './style';
+import {StyledSelectBox, StyledErrorMessage, StyledLabel, StyledPhoneInput} from "../../../commonComponents/selectAndInput/style";
 import Input from "../../../commonComponents/selectAndInput/Input";
 import 'react-phone-number-input/style.css'
 
@@ -24,7 +24,7 @@ const SubFormPersonalInfo = ({
     const { t } = useTranslation();
 
     return (
-        <SubFormContainer>
+        <StyledSubFormContainer>
             <SubFormTitleFont>{t('titles.titleSubformSecond')}</SubFormTitleFont>
             <SmallTitleFont>{t('personalInfo.aboutYou')}</SmallTitleFont>
             <Input
@@ -59,7 +59,7 @@ const SubFormPersonalInfo = ({
             />
             <>
             <StyledErrorMessage>{phoneError}</StyledErrorMessage>
-            <SelectBox>
+            <StyledSelectBox>
                 <StyledLabel htmlFor='phone'>{t('personalInfo.phone')}</StyledLabel>
                 <StyledPhoneInput
                     id={'phone'}
@@ -70,9 +70,9 @@ const SubFormPersonalInfo = ({
                     onChange={onChangeValPhone}
                     countries={["SK", "CZ", "HU", "KY"]}
                     />
-            </SelectBox>
+            </StyledSelectBox>
             </>
-        </SubFormContainer>
+        </StyledSubFormContainer>
     );
 }
 

@@ -55,7 +55,7 @@ export const BoxTitleFont = styled.h4`
     font-size: 1rem;
     line-height: 1.3rem;
     font-weight: 800;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
 `
 //small title below big title
 export const SmallTitleFont = styled.h5`
@@ -73,8 +73,8 @@ export const TitleCheckSubFormFont = styled.h6`
 `
 // content of box inside footer
 export const BoxParagraphFont = styled.p`
-    font-size: 1rem;
-    line-height: 1.3rem;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
     font-weight: 400;
     color: ${lightblack}
 `

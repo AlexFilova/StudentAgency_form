@@ -51,10 +51,17 @@ export const translationSk = {
         confirmForm:'Potvrdiť',
     },
     footer: {
-        aboutUs: 'Viac o -You-CanDoThis',
-        support: 'Ocenenia a podpora',
-        contacts:'Kontakty',
-        cupcakeIpsum: 'Sweet roll jelly-o carrot cake sweet sugar plum. Dragée sugar plum cupcake chupa chups marzipan chocolate cake.',
+        aboutUsTitle: 'Kto sme',
+        aboutUsContent: 'Naša agentúra zabezpečuje stáže už od roku 1999. Sme najlepší na trhu vďaka dobrým medzinárodným vzťahom a trasparentnosti.',
+        supportTitle: 'Ocenenia a podpora',
+        supportContent: 'Sme ocenený Európskym výborom pre medziľudské vzťahy. Za dlhodobú spoluprácu a podporu ďakujeme International Bank.',
+        contactsTitle:'Kontakty',
+        contactsContent: {
+            contactNumber: '+421 900 000 000',
+            contactEmail: 'youcandothis@agency.com',
+            contactAddressBA: 'Pražská 3, 831 01 Bratislava',
+            contactAddressKE: 'Štúrová 18, 040 01 Košice',
+        },
     },
     errorMessages: {
         missingCoutry:'Povinný údaj. Prosím vyberte štát.',
@@ -128,11 +135,17 @@ export const translationEn = {
         confirmForm:'Confirm',
     },
     footer: {
-        aboutUs: 'More about -You-CanDoThis',
-        support: 'Awards and support',
-        contacts:'Contacts',
-        cupcakeIpsum: 'Sweet roll jelly-o carrot cake sweet sugar plum. Dragée sugar plum cupcake chupa chups marzipan chocolate cake.',
-
+        aboutUsTitle: 'Who we are',
+        aboutUsContent: 'Our agency has been providing internships since 1999. We are the best on the trade because of good international relations and transparency.',
+        supportTitle: 'Awards and support',
+        supportContent: 'We are awarded by the European Committee for Interpersonal Realationships. We thank International Bank for their long-term cooperation and support.',
+        contactsTitle:'Contacts',
+        contactsContent: {
+            contactNumber: '+421 900 000 000',
+            contactEmail: 'youcandothis@agency.com',
+            contactAddressBA: 'Pražská 3, 831 01 Bratislava',
+            contactAddressKE: 'Štúrová 18, 040 01 Košice',
+        },
     },
     errorMessages: {
         missingCoutry:'Requred data. Please select a country/state.',
