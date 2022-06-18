@@ -1,7 +1,8 @@
-import { SubFormTitleFont, SmallTitleFont } from "../../../../styles/fontStyles";
-import { SubFormContainer } from './style';
-import { SelectBox, StyledErrorMessage, StyledLabel, StyledPhoneInput } from "../../../commonComponents/selectAndInput/style";
-import { useTranslation } from "react-i18next";
+import PropTypes from 'prop-types';
+import {useTranslation} from "react-i18next";
+import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
+import {SubFormContainer} from './style';
+import {SelectBox, StyledErrorMessage, StyledLabel, StyledPhoneInput} from "../../../commonComponents/selectAndInput/style";
 import Input from "../../../commonComponents/selectAndInput/Input";
 import 'react-phone-number-input/style.css'
 
@@ -71,12 +72,23 @@ const SubFormPersonalInfo = ({
                     />
             </SelectBox>
             </>
-            {/* <StyledNextButton
-            onClick={goToNext()}
-            
-            >{t('buttons.next')}</StyledNextButton> */}
         </SubFormContainer>
     );
 }
+
+SubFormPersonalInfo.propTypes = {
+    valName: PropTypes.string,
+    valLastname: PropTypes.string,
+    valEmail: PropTypes.string,
+    valPhone: PropTypes.string,
+    onChangeValName: PropTypes.func,
+    onChangeValLastname: PropTypes.func,
+    onChangeValEmail: PropTypes.func,
+    onChangeValPhone: PropTypes.func,
+    nameError: PropTypes.string,
+    lastnameError: PropTypes.string,
+    emailError: PropTypes.string,
+    phoneError: PropTypes.string,
+};
 
 export default SubFormPersonalInfo;

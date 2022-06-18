@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react';
-import { SubFormTitleFont, SmallTitleFont } from "../../../../styles/fontStyles";
+import PropTypes, {shape, array} from 'prop-types';
+import {useTranslation} from "react-i18next";
+import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
 import {fetchData} from '../../../../api/apiCall';
-import { useTranslation } from "react-i18next";
 import Select from '../../../commonComponents/selectAndInput/Select';
-import { SubFormContainer } from './style';
+import {SubFormContainer} from './style';
 import BigToggle from '../../../commonComponents/toggle/BigToggle';
 import Time from '../../../commonComponents/time/Time';
 
@@ -83,6 +84,7 @@ const SubformPreferency = ({
                      id={'country'}
                      selectLabel={t('internship.labelCountry')}
                      placeholder={t('internship.palceholderCountry')}
+                     isSearchable={true}
                      options={optionsEuCountries}
                      value={valCountry}
                      onChange={onChangeValCountry}
@@ -94,6 +96,7 @@ const SubformPreferency = ({
                     id={'state'}
                     selectLabel={t('internship.labelState')}
                     placeholder={t('internship.palceholderState')}
+                    isSearchable={true}
                     options={optionsUsaStates}
                     value={valState}
                     onChange={onChangeValState}
@@ -105,6 +108,7 @@ const SubformPreferency = ({
                     id={'work'}
                     selectLabel={t('internship.labelWorkArea')}
                     placeholder={t('internship.palceholderWorkArea')}
+                    isSearchable={true}
                     options={optionsJobs}
                     value={valWork}
                     onChange={onChangeValWork}
@@ -117,12 +121,34 @@ const SubformPreferency = ({
                 btnStates={btnStates}
                 errorMessage={timeError}
             />
-        {/* <StyledNextButton
-            onClick={goToNext}
-        >
-            {t('buttons.next')}</StyledNextButton> */}
         </SubFormContainer>
     );
 }
+
+SubformPreferency.propTypes = {
+    designToggleBtnOne: PropTypes.bool,
+    designToggleBtnTwo: PropTypes.bool,
+    setdesignToggleBtnOne: PropTypes.func,
+    setdesignToggleBtnTwo: PropTypes.func,
+    onBlurValLocality: PropTypes.func,
+    valCountry: PropTypes.string,
+    onChangeValCountry: PropTypes.func,
+    valState: PropTypes.string,
+    onChangeValState: PropTypes.func,
+    valWork: PropTypes.string,
+    onChangeValWork: PropTypes.func,
+    onClickValTime: PropTypes.func,
+    btnStates: PropTypes.oneOfType([
+        array,
+        shape({
+            id: PropTypes.number,
+            btnBoolean: PropTypes.bool,
+        }),
+    ]),
+    countryError: PropTypes.string,
+    jobError: PropTypes.string,
+    timeError: PropTypes.string,
+    stateError: PropTypes.string,
+};
 
 export default SubformPreferency;

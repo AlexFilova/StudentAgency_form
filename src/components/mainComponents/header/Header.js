@@ -1,3 +1,4 @@
+import {useTranslation} from 'react-i18next';
 import { 
     HeaderSection,
     HeaderElement,
@@ -7,19 +8,18 @@ import {
     StyledButtonLang,
 } from "./style";
 import {Container} from '../../../styles/styles'
-import { useTranslation } from 'react-i18next';
 import {FaFacebookF, FaInstagram} from 'react-icons/fa';
-import { white, darkOrange, darkgrey } from "../../../styles/colors";
+import {white, darkOrange, darkgrey} from "../../../styles/colors";
 import LogoComponent from "../../commonComponents/Logo";
 
 const Header = () => {
 
     const lngs = {
-        sk: { nativeName: 'Sk' },
-        en: { nativeName: 'En' }
+        sk: {nativeName: 'Sk'},
+        en: {nativeName: 'En'}
       };
 
-    const { i18n } = useTranslation();
+    const {i18n} = useTranslation();
     const resolved =  i18n.resolvedLanguage;
 
     return (
@@ -69,4 +69,4 @@ const Header = () => {
     );
 }
 
-export default Header ;
+export default Header;

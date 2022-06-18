@@ -1,6 +1,17 @@
-import { SelectBox, StyledLabel, StyledSelect, StyledErrorMessage } from "./style";
+import PropTypes, {string, array} from 'prop-types';
+import {SelectBox, StyledLabel, StyledSelect, StyledErrorMessage} from "./style";
 
-const Select = ({htmlFor, id, selectLabel, placeholder, isSearchable, options, value, onChange, errorMessage}) => {
+const Select = ({
+    htmlFor,
+    id,
+    selectLabel,
+    placeholder,
+    isSearchable,
+    options,
+    value,
+    onChange,
+    errorMessage,
+}) => {
 
     return (
         <>
@@ -20,5 +31,17 @@ const Select = ({htmlFor, id, selectLabel, placeholder, isSearchable, options, v
         </>
     );
 }
+
+Select.propTypes = {
+    htmlFor: PropTypes.string,
+    id: PropTypes.string,
+    selectLabel: PropTypes.string,
+    placeholder: PropTypes.string,
+    isSearchable: PropTypes.bool,
+    options: PropTypes.oneOfType([array, string]),
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+    errorMessage: PropTypes.string,
+};
 
 export default Select;

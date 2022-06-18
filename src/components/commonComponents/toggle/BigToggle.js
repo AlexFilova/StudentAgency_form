@@ -1,9 +1,16 @@
-import PropTypes from 'prop-types'
-import { ToggleConatiner, StyledToggleButton, IconContainer, IconEU, IconUSA, IconCheck } from "./style";
-import { ToggleParagraphFont } from "../../../styles/fontStyles";
-import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
+import {useTranslation} from 'react-i18next';
+import {ToggleConatiner, StyledToggleButton, IconContainer, IconEU, IconUSA, IconCheck} from "./style";
+import {ToggleParagraphFont} from "../../../styles/fontStyles";
 
-const BigToggle = ({designToggleBtnOne, setdesignToggleBtnOne, designToggleBtnTwo, setdesignToggleBtnTwo, onBlurValLocality}) => {
+const BigToggle = ({
+    designToggleBtnOne,
+    setdesignToggleBtnOne,
+    designToggleBtnTwo,
+    setdesignToggleBtnTwo,
+    onBlurValLocality,
+}) => {
+    
     const { t } = useTranslation();
 
     return (
@@ -56,6 +63,6 @@ BigToggle.propTypes = {
     setdesignToggleBtnOne: PropTypes.func,
     designToggleBtnTwo: PropTypes.bool,
     setdesignToggleBtnTwo: PropTypes.func,
-}
+};
 
 export default BigToggle;

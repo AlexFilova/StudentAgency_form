@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {useTranslation} from 'react-i18next';
 import {
     defaultValuesForm,
     defaultValuesTimeButton,
@@ -12,7 +13,6 @@ import {FormWrapper, ProgressBar, ActiveBar, DisActiveBar, StyledButtonWrapper, 
 import SubFormCheck from '../subform/SubFormCheck';
 import SubformPreferency from '../subform/SubformPreferency';
 import SubFormPersonalInfo from '../subform/SubFormPersonalInfo';
-import { useTranslation } from 'react-i18next';
 
 const Form = () => {
 
@@ -74,6 +74,10 @@ const Form = () => {
         const timeId = e.target.id;
         const truthyFalsyLogic = btnStates.map(obj => ({...obj, btnBoolean: timeId.includes(obj.id)}));
         setBtnStates (truthyFalsyLogic);
+
+        if(firstPageErrors[accessor]){
+            delete firstPageErrors[accessor];
+        }
     }
 
     const handleToggleRelatedEvent = (value, accessorOne, accessorTwo) => {
@@ -83,18 +87,38 @@ const Form = () => {
         setFormValues(prevState => ({
             ...prevState, [accessorTwo]: ''
          }))
+
+         setIsClicked(false)
+
+        if(firstPageErrors[accessorOne]){
+            delete firstPageErrors[accessorOne];
+        }
+        if(firstPageErrors[accessorTwo]){
+            delete firstPageErrors[accessorTwo];
+        }
     }
 
     const handleEventValue = (value, accessor) => {
         setFormValues(prevState => ({
            ...prevState, [accessor]: value
         }))
+
+        if(firstPageErrors[accessor]){
+            delete firstPageErrors[accessor];
+        }
+        if(secondPageErrors[accessor]){
+            delete secondPageErrors[accessor];
+        }
       }
 
     const handleEventTargetValue = (e, accessor) => {
     setFormValues(prevState => (
         {...prevState, [accessor]: e.target.value}
         ))
+
+        if(secondPageErrors[accessor]){
+            delete secondPageErrors[accessor];
+        }
     }
 
     const goToNext = () => {

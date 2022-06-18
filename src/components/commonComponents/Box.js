@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
 import {StyledBox} from './style'
 import {BoxParagraphFont, BoxTitleFont} from '../../styles/fontStyles'
 
 const Box = ({title, boxContent}) => {
+    
     return ( 
         <StyledBox>
                 <BoxTitleFont>{title}</BoxTitleFont>
@@ -10,4 +12,9 @@ const Box = ({title, boxContent}) => {
      );
 }
 
-export default Box ;
+Box.propTypes = {
+    title: PropTypes.string,
+    boxContent: PropTypes.string,
+};
+
+export default Box;

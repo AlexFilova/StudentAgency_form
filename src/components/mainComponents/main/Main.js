@@ -1,8 +1,8 @@
+import {useTranslation} from "react-i18next";
 import {FormContainer, PictureContainer, MainWrapper, MainImg} from "./style";
 import {Container, SpecialContainer} from "../../../styles/styles";
 import internshipStudy from './../../../images/study_in_abroad.svg';
 import Form from "./form/Form";
-import { useTranslation } from "react-i18next";
 
 const Main = () => {
 

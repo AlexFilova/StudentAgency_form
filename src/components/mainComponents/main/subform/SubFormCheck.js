@@ -1,6 +1,7 @@
-import { SubFormContainer, BlockWrapper } from './style';
-import { SubFormTitleFont, TitleCheckSubFormFont, ParagraphCheckSubFormFont } from "../../../../styles/fontStyles";
-import { useTranslation } from "react-i18next";
+import PropTypes from 'prop-types';
+import {useTranslation} from "react-i18next";
+import {SubFormContainer, BlockWrapper} from './style';
+import {SubFormTitleFont, TitleCheckSubFormFont, ParagraphCheckSubFormFont} from "../../../../styles/fontStyles";
 
 const SubFormCheck = ({
     valLocality,
@@ -52,4 +53,16 @@ const SubFormCheck = ({
     );
 }
 
-export default SubFormCheck ;
+SubFormCheck.propTypes = {
+    valLocality: PropTypes.string,
+    valCountry: PropTypes.string,
+    valState: PropTypes.string,
+    valWork: PropTypes.string,
+    valTime: PropTypes.string,
+    valName: PropTypes.string,
+    valLastname: PropTypes.string,
+    valEmail: PropTypes.string,
+    valPhone: PropTypes.string,
+};
+
+export default SubFormCheck;

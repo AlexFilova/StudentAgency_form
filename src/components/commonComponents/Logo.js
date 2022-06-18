@@ -1,6 +1,6 @@
-import { LogoContainer } from "./style";
+import {useTranslation} from "react-i18next";
+import {LogoContainer} from "./style";
 import Logo from './../../images/logo_You_CanDoThis.svg';
-import { useTranslation } from "react-i18next";
 
 const LogoComponent = () => {
 

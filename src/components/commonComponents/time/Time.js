@@ -1,19 +1,13 @@
-import { TimeContainer, TimeBox } from "./style";
-import { StyledErrorMessage } from "../selectAndInput/style";
-import { useTranslation } from "react-i18next";
+import PropTypes, {shape, array, number, bool} from 'prop-types';
+import {TimeContainer, TimeBox} from "./style";
+import {StyledErrorMessage} from "../selectAndInput/style";
+import {useTranslation} from "react-i18next";
 
 const Time = ({onClick, btnStates, errorMessage}) => {
 
     const { t } = useTranslation();
 
-
     const truthyFalsyTime = btnStates.map(s => s.btnBoolean)
-    // console.log(array.length);
-    // for(let i = 0; i < array.length; i++) {
-    //     console.log(i)
-    //     console.log(array[i]);
-    //   }
-      // End of loop
       
     return (
         <>
@@ -71,5 +65,17 @@ const Time = ({onClick, btnStates, errorMessage}) => {
 
     );
 }
+
+Time.propTypes = {
+    onClick: PropTypes.func,
+    btnStates: PropTypes.oneOfType([
+        array,
+        shape({
+            id: number,
+            btnBoolean: bool,
+        }),
+    ]),
+    errorMessage: PropTypes.string
+};
 
 export default Time;

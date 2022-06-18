@@ -1,7 +1,7 @@
-import { FooterSection, FooterContainer, FooterWrapper } from "./style";
+import {useTranslation} from 'react-i18next';
+import {FooterSection, FooterContainer, FooterWrapper} from "./style";
 import Box from '../../commonComponents/Box';
 import LogoComponent from "../../commonComponents/Logo";
-import { useTranslation } from 'react-i18next';
 
 
 const Footer = () => {
