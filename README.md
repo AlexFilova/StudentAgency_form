@@ -1,3 +1,18 @@
+**Author's Documentation**
+Application has frontend (react.js) and json-server.
+
+After cloning you have to initialize application by **npm install** or **npm i**.
+
+Run frontend by **npm start** and json-server by **npm run server**
+
+You can see frontend on **http://localhost:3000** and Home of database from json-server on **http://localhost:8000**.
+
+Resources of database is db.json, which is posible to see on **http://localhost:8000/data**.
+
+Development of application is still in progress.
+
+
+**Original Documentation**
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
