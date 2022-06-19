@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, {string, shape} from 'prop-types';
 import {useTranslation} from "react-i18next";
 import {StyledSubFormContainer, StyledBlockWrapper} from './style';
 import {SubFormTitleFont, TitleCheckSubFormFont, ParagraphCheckSubFormFont} from "../../../../styles/fontStyles";
@@ -55,9 +55,21 @@ const SubFormCheck = ({
 
 SubFormCheck.propTypes = {
     valLocality: PropTypes.string,
-    valCountry: PropTypes.string,
-    valState: PropTypes.string,
-    valWork: PropTypes.string,
+    valCountry: PropTypes.oneOfType([string, shape({
+        label: string,
+        value: string
+        }),
+    ]),
+    valState: PropTypes.oneOfType([string, shape({
+        label: string,
+        value: string
+        }),
+    ]),
+    valWork: PropTypes.oneOfType([string, shape({
+        label: string,
+        value: string
+        }),
+    ]),
     valTime: PropTypes.string,
     valName: PropTypes.string,
     valLastname: PropTypes.string,

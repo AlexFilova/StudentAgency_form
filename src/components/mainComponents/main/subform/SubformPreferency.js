@@ -1,14 +1,15 @@
-import {useState, useEffect} from 'react';
-import PropTypes, {shape, array} from 'prop-types';
+import PropTypes, {string, shape} from 'prop-types';
 import {useTranslation} from "react-i18next";
 import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
-import {fetchData} from '../../../../api/apiCall';
 import Select from '../../../commonComponents/selectAndInput/Select';
 import {StyledSubFormContainer} from './style';
 import BigToggle from '../../../commonComponents/toggle/BigToggle';
 import Time from '../../../commonComponents/time/Time';
 
 const SubformPreferency = ({
+    optionsEuCountries,
+    optionsUsaStates,
+    optionsJobs,
     designToggleBtnOne,
     designToggleBtnTwo,
     setdesignToggleBtnOne,
@@ -27,46 +28,10 @@ const SubformPreferency = ({
     timeError,
     stateError,
 }) => {
-    console.log('Render subform');
+    
     const { t } = useTranslation();
-
-    const [optionsEuCountries, setOptionsEuCountries] = useState('');
-    const [optionsUsaStates, setOptionsUsaStates] = useState('');
-    const [optionsJobs, setOptionsJobs] = useState('');
-
     
-    useEffect(() => {
-        const getData = async () => {
-        const data = await fetchData();
-        const euCountries = data[0];
-        const arrayEuCountries = Object.values(euCountries);
-        const optionsAttributesEuCountries =
-            arrayEuCountries[0].map(euCountry => ({
-                value: euCountry,
-                label: euCountry,
-            }))
-            setOptionsEuCountries(optionsAttributesEuCountries);
-        const usaStates = data[1];
-        const arrayUsaStates = Object.values(usaStates);
-        const optionsAttributesUsaStates =
-            arrayUsaStates[0].map(usaState => ({
-                value: usaState,
-                label: usaState,
-            }))
-            setOptionsUsaStates(optionsAttributesUsaStates);
-        const jobs = data[2];
-        const arrayJobs = Object.values(jobs);
-        const optionsAttributesJobs =
-            arrayJobs[0].map(job => ({
-                value: job,
-                label: job,
-            }))
-            setOptionsJobs(optionsAttributesJobs);
-        };
-        getData()
-      },[]);
-    
-    return ( 
+    return (
         <StyledSubFormContainer>
             <SubFormTitleFont>{t('titles.titleSubformFirst')}</SubFormTitleFont>
             <BigToggle
@@ -131,20 +96,26 @@ SubformPreferency.propTypes = {
     setdesignToggleBtnOne: PropTypes.func,
     setdesignToggleBtnTwo: PropTypes.func,
     onBlurValLocality: PropTypes.func,
-    valCountry: PropTypes.string,
-    onChangeValCountry: PropTypes.func,
-    valState: PropTypes.string,
-    onChangeValState: PropTypes.func,
-    valWork: PropTypes.string,
-    onChangeValWork: PropTypes.func,
-    onClickValTime: PropTypes.func,
-    btnStates: PropTypes.oneOfType([
-        array,
-        shape({
-            id: PropTypes.number,
-            btnBoolean: PropTypes.bool,
+    valCountry: PropTypes.oneOfType([string, shape({
+        label: string,
+        value: string
         }),
     ]),
+    onChangeValCountry: PropTypes.func,
+    valState: PropTypes.oneOfType([string, shape({
+        label: string,
+        value: string
+        }),
+    ]),
+    onChangeValState: PropTypes.func,
+    valWork: PropTypes.oneOfType([string, shape({
+        label: string,
+        value: string
+        }),
+    ]),
+    onChangeValWork: PropTypes.func,
+    onClickValTime: PropTypes.func,
+    btnStates: PropTypes.array,
     countryError: PropTypes.string,
     jobError: PropTypes.string,
     timeError: PropTypes.string,

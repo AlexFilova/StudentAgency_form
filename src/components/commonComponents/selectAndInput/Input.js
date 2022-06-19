@@ -23,6 +23,7 @@ const Input = ({
                     placeholder={placeholder}
                     value={value}
                     onChange={onChange}
+                    onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault()}}
                 />
             </StyledSelectBox>
             </>

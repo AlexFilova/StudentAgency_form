@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "concurrently": "^7.2.2",
     "i18next": "^21.8.5",
     "i18next-browser-languagedetector": "^6.1.4",
     "json-server": "^0.17.0",
@@ -26,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 8000"
+    "server": "concurrently --kill-others \"json-server --host 0.0.0.0 --watch db.json --port 8000\"  \"json-server --host 0.0.0.0 --watch db-Users.json --port 8080\""
   },
   "eslintConfig": {
     "extends": [
