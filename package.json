@@ -20,6 +20,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.3.2",
     "styled-components": "^5.3.5",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -27,7 +28,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "concurrently --kill-others \"json-server --host 0.0.0.0 --watch db.json --port 8000\"  \"json-server --host 0.0.0.0 --watch db-Users.json --port 8080\""
+    "json-server:options": "json-server --watch db-options.json --port 8000",
+    "json-server:users": "json-server --watch db-Users.json --port 8080",
+    "server": "concurrently \"npm run json-server:options\"  \"npm run json-server:users\""
   },
   "eslintConfig": {
     "extends": [
