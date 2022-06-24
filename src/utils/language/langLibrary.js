@@ -14,7 +14,7 @@ export const translationSk = {
         labelState:'Štát USA',
         palceholderState:'Vyberte štát zo zoznamu',
         labelWorkArea:'Pracovná oblasť',
-        palceholderWorkArea:'Vyberte pracovnú oblasť zo zoznamu',
+        palceholderWorkArea:'Vyberte si prácu zo zoznamu',
         time: {
             timeTitle:'Na stáži by ste chceli pobudnúť',
             oneMonth:'1 mesiac',
@@ -74,11 +74,14 @@ export const translationSk = {
         invalidFormatLastName: 'Neplatný formát. Priezvisko musí obsahovať iba písmená.',
         invalidFormatEmail: 'Email nemá platný formát. Prosím skontrolujte.',
         invalidFormatPhone: 'Telefónne číslo je príliš krátke.',
+        noDataErrorTitle: 'Prepáčte!',
+        noDataErrorContent: 'Stranku nie je možné načítať. Ak problém pretrváva dlhšie ako 30 minút kontaktujte nás prosím na telefónnom čísle +421 900 000 000.',
 
     },
     imagesAlt:{
         logo: 'Najspoľahlivejšia stážová agentúra pre študentov - You can do this',
         internshipStudy: 'Študentka hľadajúca stáž v zahraničí online',
+        oopsError: 'Sytemovy problém. Ak pretrváva viac ako 30 minút, volajte prosím na telefónne číslo +421 900 000 000.',
     },
 };
 
@@ -98,7 +101,7 @@ export const translationEn = {
         labelState:'State of USA',
         palceholderState:'Select state from the list',
         labelWorkArea:'Work area',
-        palceholderWorkArea:'Select work area from the list',
+        palceholderWorkArea:'Select a job from the list',
         time: {
             timeTitle:'You would like to stay on an internship',
             oneMonth:'1 month',
@@ -158,9 +161,12 @@ export const translationEn = {
         invalidFormatLastName: 'Invalid format. Lastname should contain only letters.',
         invalidFormatEmail: 'Email has invalid format. Please, check it out.',
         invalidFormatPhone: 'Phone number is too short.',
+        noDataErrorTitle: 'We are sorry!',
+        noDataErrorContent: 'Unable to load page. If the problem persists for more than 30 minutes, please contact us at +421 900 000 000.',
     },
     imagesAlt:{
         logo: 'The most reliable internship agency for students - You can do this',
         internshipStudy: 'A student looking for an internship abroad online',
+        oopsError: 'System problem. If it lasts more than 30 minutes, please call +421 900 000 000.',
     },
 };
