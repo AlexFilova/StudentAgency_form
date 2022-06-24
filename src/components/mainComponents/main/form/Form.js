@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
-import {fetchData} from '../../../../api/apiCall';
+import {fetchData, postData} from '../../../../api/apiCall';
 import {useTranslation} from 'react-i18next';
+import { v4 as uuidv4 } from 'uuid';
 import {
     defaultValuesForm,
     defaultValuesTimeButton,
@@ -14,6 +15,7 @@ import {StyledFormWrapper, StyledProgressBar, StyledActiveBar, StyledDisActiveBa
 import SubFormCheck from '../subform/SubFormCheck';
 import SubformPreferency from '../subform/SubformPreferency';
 import SubFormPersonalInfo from '../subform/SubFormPersonalInfo';
+import ApiError from '../../../commonComponents/sideComponents/ApiError';
 
 const Form = () => {
 
@@ -30,10 +32,25 @@ const Form = () => {
     const [secondPageErrors, setSecondPageErrors] = useState({});
     const [page, setPage] = useState(0);
     const [isClicked, setIsClicked] = useState(false)
+    console.log('isClicked');
+    console.log(isClicked);
     const [isError, setIsError] = useState(false);
 
     const noErrorsPageOne = Object.keys(firstPageErrors).length === 0;
     const noErrorsPageTwo = Object.keys(secondPageErrors).length === 0;
+    // const {
+    //         localitySpecificationEu,
+    //         localitySpecificationUsa,
+    //         job,
+    //         time,
+    //         name,
+    //         lastname,
+    //         email,
+    //         phone,
+    //     } = formValues
+    // const firstPageFormValuesEu = localitySpecificationEu && job && time;
+    // const firstPageFormValuesUsa = localitySpecificationUsa && job && time;
+    // const secondPageFormValues = localitySpecificationUsa && job && time;
 
     const missingCoutry = t('errorMessages.missingCoutry');
     const missingJob = t('errorMessages.missingJob');
@@ -45,7 +62,7 @@ const Form = () => {
     const invalidFormatLastName = t('errorMessages.invalidFormatLastName');
     const invalidFormatEmail = t('errorMessages.invalidFormatEmail');
     const invalidFormatPhone = t('errorMessages.invalidFormatPhone');
-
+    
     const getData = async () => {
         const data = await fetchData();
         if(data){
@@ -83,6 +100,10 @@ const Form = () => {
     useEffect(() => {
             getData()
     },[]);
+
+    useEffect(() => {
+        window.scroll(0, 100)
+    },[page]);
 
     useEffect(() => {
         if(page === 0 && isClicked === true && noErrorsPageOne) {
@@ -191,15 +212,37 @@ const Form = () => {
                 invalidFormatPhone,
                 ))
             
-            if (checkIfEveryElementIsTrue(getKeyFormValues(formValues,5,8)) === true && formValues.phone.length > 6) {
+            if (checkIfEveryElementIsTrue(getKeyFormValues(formValues,5,8)) === true && formValues.phone.length > 5) {
 
                 setIsClicked(true)
             }
         }
     }
 
-    const handleSubmit = (e) => {
+    const getValueOfValueKey = (object, key) => {
+        const goal = object[key];
+        if(goal) {
+            const getItem = Object.values(goal).map(j => j)[0];
+            object[key] = getItem;
+        }
+    }
+
+    const submit = (e) => {
         e.preventDefault();
+        const createPostData = {id: uuidv4(), ...formValues};
+        if(createPostData) {
+            getValueOfValueKey(createPostData, 'job');
+            if(createPostData.localitySpecificationUsa.length === 0){
+                getValueOfValueKey(createPostData, 'localitySpecificationEu');
+                createPostData['localitySpecificationUsa'] = null
+            }
+            if(createPostData.localitySpecificationEu.length === 0){
+                getValueOfValueKey(createPostData, 'localitySpecificationUsa');
+                createPostData['localitySpecificationEu'] = null
+            }
+            console.log(createPostData);
+        }
+        postData(createPostData);
     }
 
     const PageDisplay = () => {
@@ -260,9 +303,10 @@ const Form = () => {
     
     return (
         <>
-        {isError === true
-            ? <h3>Try it later.</h3>
-                : <StyledFormWrapper key={FormPages[page]}>
+        {isError === true ?
+            <ApiError />
+            : 
+            <StyledFormWrapper key={FormPages[page]}>
                 <StyledProgressBar>
                     {FormPages.map((formPage) => (
                         page === formPage
@@ -270,17 +314,18 @@ const Form = () => {
                         : <StyledDisActiveBar key={Math.floor(Math.random()*100000)}/>
                     ))}
                 </StyledProgressBar>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={submit}>
                     {subForm}
                     <StyledButtonContainer>
                         <StyledButtonWrapper>
                             {page > 0 &&
                                 <StyledButton
-                                backBtn
-                                disabled={page === 0}
-                                onClick={() => {
-                                    goBack()
-                                }}
+                                    type='button'
+                                    backBtn
+                                    disabled={page === 0}
+                                    onClick={() => {
+                                        goBack()
+                                    }}
                                 >
                                     {t('buttons.back')}
                                 </StyledButton>
@@ -291,18 +336,19 @@ const Form = () => {
                         >
                             {page < FormPages.length -1 &&
                                 <StyledNextButton
-                                nextBtn
-                                    onClick={() => {
-                                        goNext()
-                                    }}
+                                    type='button'
+                                    nextBtn
+                                        onClick={() => {
+                                            goNext()
+                                        }}
                                 >
                                     {t('buttons.next')}
                                 </StyledNextButton>
                             }
                             {page > FormPages.length -2 &&
                                 <StyledButton
-                                    submitBtn
                                     type='submit'
+                                    submitBtn
                                 >
                                     {t('buttons.confirmForm')}
                                 </StyledButton>
@@ -312,7 +358,7 @@ const Form = () => {
                 </form>
             </StyledFormWrapper>
         }
-        </>
+    </>
     );
 }
 

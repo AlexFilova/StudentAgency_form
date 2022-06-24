@@ -2,7 +2,8 @@ import PropTypes, {string, shape} from 'prop-types';
 import {useTranslation} from "react-i18next";
 import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
 import Select from '../../../commonComponents/selectAndInput/Select';
-import {StyledSubFormContainer} from './style';
+import {StyledSubFormContainer, StyledDiv, StyledMainImgResponsivePhone} from './style';
+import internshipStudyResposivePhone from '../../../../images/study_in_broad-for_phone.svg';
 import BigToggle from '../../../commonComponents/toggle/BigToggle';
 import Time from '../../../commonComponents/time/Time';
 
@@ -34,6 +35,7 @@ const SubformPreferency = ({
     return (
         <StyledSubFormContainer>
             <SubFormTitleFont>{t('titles.titleSubformFirst')}</SubFormTitleFont>
+            <StyledDiv>
             <BigToggle
                 designToggleBtnOne={designToggleBtnOne}
                 designToggleBtnTwo={designToggleBtnTwo}
@@ -41,6 +43,14 @@ const SubformPreferency = ({
                 setdesignToggleBtnTwo={setdesignToggleBtnTwo}
                 onBlurValLocality={onBlurValLocality}
             />
+            <div>
+
+            <StyledMainImgResponsivePhone
+                src={internshipStudyResposivePhone}
+                alt={t('imagesAlt.internshipStudy')}
+            />
+            </div>
+            </StyledDiv>
             <div>
                 <SmallTitleFont>{t('internship.preferency')}</SmallTitleFont>
                 {designToggleBtnOne === true && designToggleBtnTwo === false ?

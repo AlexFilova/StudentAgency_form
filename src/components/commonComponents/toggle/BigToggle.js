@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
-import {StyledToggleConatiner, StyledToggleButton, StyledIconContainer, StyledIconEU, StyledIconUSA, StyledIconCheck} from "./style";
+import {StyledToggleContainer, StyledToggleButton, StyledIconContainer, StyledIconEU, StyledIconUSA, StyledIconCheck} from "./style";
 import {ToggleParagraphFont} from "../../../styles/fontStyles";
 
 const BigToggle = ({
@@ -14,9 +14,10 @@ const BigToggle = ({
     const { t } = useTranslation();
 
     return (
-        <StyledToggleConatiner>
+        <StyledToggleContainer>
             <StyledToggleButton
                 name='toggleOne'
+                type='button'
                 design={designToggleBtnOne === true ? 'design' : ''}
                 primary={true}
                 value='EU'
@@ -36,6 +37,7 @@ const BigToggle = ({
             </StyledToggleButton>
             <StyledToggleButton
                 name='toggleTwo'
+                type='button'
                 design={designToggleBtnTwo === true ? 'design' : ''}
                 value='USA'
                 onClick={() => {
@@ -52,8 +54,7 @@ const BigToggle = ({
                 && <StyledIconCheck /> 
                 }
             </StyledToggleButton>
-
-        </StyledToggleConatiner>
+        </StyledToggleContainer>
     );
 }
 

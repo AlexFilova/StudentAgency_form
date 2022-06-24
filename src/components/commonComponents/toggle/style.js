@@ -1,18 +1,25 @@
 import styled, {css} from 'styled-components';
+import {device} from '../../../styles/responsivity';
 import { white, lightgrey, grey, darkgrey, blueGreen, iconDarkBlueGreen, greyBlueGreen, linearGradient, shadowToggle } from '../../../styles/colors';
 import { GiEuropeanFlag}  from "react-icons/gi";
 import { FaFlagUsa, FaCheck } from "react-icons/fa";
 
-
-const toggleHeight = '140px';
+const toggleHeight = '160px';
 const transformedtoggleHeight = `${parseFloat(toggleHeight)+4}px`
 
-export const StyledToggleConatiner = styled.div`
+export const StyledToggleContainer = styled.div`
     width: 100%;
     height: ${toggleHeight};
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media ${device.tabletM} {
+        width: 60%;
+    }
+    @media ${device.tabletS} {
+        width: 100%;
+    }
 `
 export const StyledToggleButton= styled.button`
     position: relative;
@@ -32,6 +39,7 @@ export const StyledToggleButton= styled.button`
         width: 51%;
         height: ${transformedtoggleHeight};
     }
+      }
 `
 export const StyledIconContainer = styled.div`
     background-color: ${props => props.design ? `${iconDarkBlueGreen}` : `${grey}`};

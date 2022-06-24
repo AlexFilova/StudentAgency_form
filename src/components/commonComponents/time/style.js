@@ -9,8 +9,8 @@ export const StyledTimeContainer = styled.div`
     align-items: center;
     flex-wrap: wrap;
 `
-export const StyledTimeBox = styled.option`
-    width: 100px;
+export const StyledTimeBtn = styled.option`
+    width: 29%;
     height: 40px;
     margin: 15px 2%;
     border-radius: 1rem;

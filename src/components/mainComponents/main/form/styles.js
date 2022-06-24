@@ -1,11 +1,16 @@
 import styled, {css} from 'styled-components';
+import {device} from '../../../../styles/responsivity';
 import {SpaceBetweenCenterNoWrapStyle} from '../../../../styles/styles';
-import {white, darkgrey, darkOrange, ultralightOrange, darkPinkRed, blueGreen, shadowButton} from '../../../../styles/colors';
+import {white, darkgrey, darkOrange, ultralightOrange, darkPink, blueGreen, shadowButton} from '../../../../styles/colors';
 import {CommonFont} from '../../../../styles/fontStyles'
 
 export const StyledFormWrapper = styled.div`
     width: 85%;
     height: auto;
+
+    @media ${device.tabletM} { 
+        width: 100%;
+      }
 `
 export const StyledProgressBar = styled.div`
     ${SpaceBetweenCenterNoWrapStyle}
@@ -49,7 +54,7 @@ export const StyledButton = styled.button`
     width: ${props => props.backBtn ? '90px ': '160px'};
     height: 59px;
     color: ${white};
-    background-color: ${props => props.backBtn ? `${darkPinkRed}`: `${blueGreen}`};
+    background-color: ${props => props.backBtn ? `${darkPink}`: `${blueGreen}`};
     border-radius: 6.25rem;
     border: none;
     box-shadow: ${props => props.submitBtn && `${shadowButton}`};

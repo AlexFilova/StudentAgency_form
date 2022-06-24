@@ -89,6 +89,7 @@ export const StyledSelect = styled(Select)`
 
 export const StyledInput = styled.input`
     ${WriteInputStyleFont}
+    width: 90%;
     border: none;
     margin: 10px 0 0px 13px;
     font-family: 'Signika', sans-serif;

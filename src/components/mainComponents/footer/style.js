@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import {SpaceBetweenStartWrapStyle} from '../../../styles/styles';
 import {grey} from '../../../styles/colors';
-// import {device} from '../../../styles/responsivity';
 
 export const StyledFooterSection = styled.footer`
     max-width: 1440px;
+    min-width: 360px;
     margin: 0 auto;
 `
 export const StyledFooterContainer = styled.div`
@@ -17,6 +17,3 @@ export const StyledFooterWrapper = styled.div`
     width: 100%;
     margin-top: 30px;
     `
-    // @media ${device.smallTablet} { 
-    //     justify-content: start;
-    //   }
