@@ -1,14 +1,28 @@
-{"users": [
-        {
-            "locality": "EU",
-            "localitySpecificationEu":"Slovakia",
-            "localitySpecificationUsa":"",
-            "job": "Glazier",
-            "time": "3 months",
-            "name": "Akinu",
-            "lastname": "Shada",
-            "email": "akinu.shada@gmail.com",
-            "phone": "+421905000000"
-        }
-    ]
+{
+  "users": [
+    {
+      "id": "342a448d-3a98-42ec-a120-7d9185408257",
+      "locality": "EU",
+      "localitySpecificationEu": "Slovakia",
+      "localitySpecificationUsa": null,
+      "job": "Glazier",
+      "time": "3 months",
+      "name": "Akinu",
+      "lastname": "Shada",
+      "email": "akinu.shada@gmail.com",
+      "phone": "+421905000000"
+    },
+    {
+      "id": "86ca3ed4-5c52-4004-bef7-68e6be3ee954",
+      "locality": "USA",
+      "localitySpecificationEu": null,
+      "localitySpecificationUsa": "Alaska",
+      "job": "Registered Nurse",
+      "time": "3 months",
+      "name": "khiushdfurhdfuyeg",
+      "lastname": "sdfr",
+      "email": "dfrdf@jhuhuy.rjhegfyur",
+      "phone": "+42156"
+    }
+  ]
 }
