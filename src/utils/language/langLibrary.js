@@ -44,11 +44,16 @@ export const translationSk = {
         fullName:'Meno a priezvisko',
         emailAddress: 'E-mailová adresa',
         phone:'Telefónne číslo',
+        agreement: 'Súhlasím so spracovaním mojich osobných údajov v zmylse GDPR',
     },
     buttons: {
         next:'Pokračovať',
         back:'Späť',
         confirmForm:'Potvrdiť',
+    },
+    finalPage: {
+        finalTitle: 'Hotovo!',
+        finalContent: 'Ďakujeme za registráciu. Budeme Vás kontaktovať do dvoch pacovných dní.',
     },
     footer: {
         aboutUsTitle: 'Kto sme',
@@ -73,9 +78,11 @@ export const translationSk = {
         invalidFormatName: 'Neplatný formát. Meno musí obsahovať iba písmená.',
         invalidFormatLastName: 'Neplatný formát. Priezvisko musí obsahovať iba písmená.',
         invalidFormatEmail: 'Email nemá platný formát. Prosím skontrolujte.',
-        invalidFormatPhone: 'Telefónne číslo je príliš krátke.',
+        invalidFormatPhoneTooShort: 'Telefónne číslo je príliš krátke.',
+        invalidFormatPhoneTooLong: 'Telefónne číslo je príliš dlhé.',
+        confirmationError: 'Prosím, potvrdte súhlas so spracovaím Vašich osobných údajov.',
         noDataErrorTitle: 'Prepáčte!',
-        noDataErrorContent: 'Stranku nie je možné načítať. Ak problém pretrváva dlhšie ako 30 minút kontaktujte nás prosím na telefónnom čísle +421 900 000 000.',
+        noDataErrorContent: 'Formulár nie je možné načítať. Ak problém pretrváva dlhšie ako 30 minút kontaktujte nás prosím na telefónnom čísle +421 900 000 000.',
 
     },
     imagesAlt:{
@@ -131,11 +138,16 @@ export const translationEn = {
         fullName:'Name and lastname',
         emailAddress: 'E-mail address',
         phone:'Phone number',
+        agreement: 'I agree to the processing of my personal data in accordance with the GDPR',
     },
     buttons: {
         next:'Next',
         back:'Back',
         confirmForm:'Confirm',
+    },
+    finalPage: {
+        finalTitle: 'You are done!',
+        finalContent: 'Thank you for registration. We will contact you within two working days.',
     },
     footer: {
         aboutUsTitle: 'Who we are',
@@ -160,9 +172,11 @@ export const translationEn = {
         invalidFormatName: 'Invalid format. Name should contain only letters.',
         invalidFormatLastName: 'Invalid format. Lastname should contain only letters.',
         invalidFormatEmail: 'Email has invalid format. Please, check it out.',
-        invalidFormatPhone: 'Phone number is too short.',
+        invalidFormatPhoneTooShort: 'Phone number is too short.',
+        invalidFormatPhoneTooLong: 'Phone number is too long.',
+        confirmationError: 'Please confirm the consent to the processing of your personal data.',
         noDataErrorTitle: 'We are sorry!',
-        noDataErrorContent: 'Unable to load page. If the problem persists for more than 30 minutes, please contact us at +421 900 000 000.',
+        noDataErrorContent: 'Unable to load the form. If the problem persists for more than 30 minutes, please contact us at +421 900 000 000.',
     },
     imagesAlt:{
         logo: 'The most reliable internship agency for students - You can do this',
