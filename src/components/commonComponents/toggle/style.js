@@ -7,7 +7,36 @@ import { FaFlagUsa, FaCheck } from "react-icons/fa";
 const toggleHeight = '160px';
 const transformedtoggleHeight = `${parseFloat(toggleHeight)+4}px`
 
-export const StyledToggleContainer = styled.div`
+export const StyledToggle = styled.div`
+    width: 530px;
+
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+`
+export const StyledToggleButtonWrapper = styled.div`
+    position: absolute;
+    z-index:2000;
+    width: 530px;
+    height: ${toggleHeight};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media ${device.laptopL} {
+        width: 37.4%;
+    }
+    @media ${device.tabletM} {
+        width: 48%;
+    }
+    @media ${device.tabletS} {
+        width: 80%;
+    }
+    @media ${device.mobileS} {
+        min-width: 260px;
+    }
+`
+export const StyledToggleContainerContent = styled.div`
     width: 100%;
     height: ${toggleHeight};
     display: flex;
@@ -22,12 +51,20 @@ export const StyledToggleContainer = styled.div`
     }
 `
 export const StyledToggleButton= styled.button`
-    position: relative;
     width: 50%;
     height: ${toggleHeight} ;
     margin: 0;
     text-align: left;
     border: 1px solid ${greyBlueGreen};
+    border-radius: ${props => props.primary ? '1rem 0 0 1rem' : '0 1rem 1rem 0'};
+    background-color: transparent;
+`
+export const StyledToggleBtnContent= styled.div`
+    position: relative;
+    width: 50%;
+    height: ${toggleHeight} ;
+    margin: 0;
+    text-align: left;
     border-radius: ${props => props.primary ? '1rem 0 0 1rem' : '0 1rem 1rem 0'};
     background: ${props => props.design ? `${blueGreen}` : `${lightgrey}` };
     background: ${props => props.design ? `${linearGradient}` : `${lightgrey}` };

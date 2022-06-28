@@ -7,6 +7,7 @@ import {redPink, bordergrey, darkgrey, blueGreen} from '../../../styles/colors';
 
 export const StyledErrorMessage = styled.span`
     color: ${redPink};
+    font-size: .8rem;
 `
 export const StyledSelectBox = styled.div`
     width: 100%;

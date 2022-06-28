@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
-import {StyledToggleContainer, StyledToggleButton, StyledIconContainer, StyledIconEU, StyledIconUSA, StyledIconCheck} from "./style";
+import {
+    StyledToggle,
+    StyledToggleButtonWrapper,
+    StyledToggleContainerContent,
+    StyledToggleButton,
+    StyledToggleBtnContent,
+    StyledIconContainer,
+    StyledIconEU,
+    StyledIconUSA,
+    StyledIconCheck
+} from "./style";
 import {ToggleParagraphFont} from "../../../styles/fontStyles";
 
 const BigToggle = ({
@@ -14,47 +24,58 @@ const BigToggle = ({
     const { t } = useTranslation();
 
     return (
-        <StyledToggleContainer>
-            <StyledToggleButton
-                name='toggleOne'
-                type='button'
-                design={designToggleBtnOne === true ? 'design' : ''}
-                primary={true}
-                value='EU'
-                onClick={() => {
-                    setdesignToggleBtnOne(true);
-                    setdesignToggleBtnTwo(false)
-                }}
-                onBlur={onBlurValLocality}
-            >
-                <StyledIconContainer design={designToggleBtnOne === true ? 'design' : ''}>
-                    <StyledIconEU design={designToggleBtnOne === true ? 'design' : ''}/>
-                </StyledIconContainer>
-                <ToggleParagraphFont design={designToggleBtnOne === true ? 'design' : ''}>{t('internship.europe')}</ToggleParagraphFont>
-                {designToggleBtnOne === true && designToggleBtnTwo === false
-                && <StyledIconCheck /> 
-                }
-            </StyledToggleButton>
-            <StyledToggleButton
-                name='toggleTwo'
-                type='button'
-                design={designToggleBtnTwo === true ? 'design' : ''}
-                value='USA'
-                onClick={() => {
-                    setdesignToggleBtnOne(false);
-                    setdesignToggleBtnTwo(true)                
-                }}
-                onBlur={onBlurValLocality}
+        <StyledToggle>
+            <StyledToggleButtonWrapper>
+                <StyledToggleButton
+                    name='toggleOne'
+                    type='button'
+                    primary
+                    value='EU'
+                    onClick={(e) => {
+                        onBlurValLocality(e);
+                        setdesignToggleBtnOne(true);
+                        setdesignToggleBtnTwo(false);
+                    }}
                 >
-                <StyledIconContainer design={designToggleBtnTwo === true ? 'design' : ''}>
-                    <StyledIconUSA design={designToggleBtnTwo === true ? 'design' : ''} />
-                </StyledIconContainer>
-                <ToggleParagraphFont design={designToggleBtnTwo === true ? 'design' : ''}>{t('internship.usa')}</ToggleParagraphFont>
-                {designToggleBtnOne === false && designToggleBtnTwo === true
-                && <StyledIconCheck /> 
-                }
-            </StyledToggleButton>
-        </StyledToggleContainer>
+                </StyledToggleButton>
+                <StyledToggleButton
+                    name='toggleTwo'
+                    type='button'
+                    value='USA'
+                    onClick={(e) => {
+                        onBlurValLocality(e);               
+                        setdesignToggleBtnOne(false);
+                        setdesignToggleBtnTwo(true);
+                    }}
+                    >
+                </StyledToggleButton>
+            </StyledToggleButtonWrapper>
+            <StyledToggleContainerContent>
+                <StyledToggleBtnContent
+                    primary
+                    design={designToggleBtnOne === true ? 'design' : ''}
+                    >
+                    <StyledIconContainer  design={designToggleBtnOne === true ? 'design' : ''}>
+                        <StyledIconEU  design={designToggleBtnOne === true ? 'design' : ''}/>
+                    </StyledIconContainer>
+                    <ToggleParagraphFont design={designToggleBtnOne === true ? 'design' : ''}>{t('internship.europe')}</ToggleParagraphFont>
+                    {designToggleBtnOne === true && designToggleBtnTwo === false
+                    && <StyledIconCheck /> 
+                    }
+                </StyledToggleBtnContent>
+                <StyledToggleBtnContent
+                    design={designToggleBtnTwo === true ? 'design' : ''}
+                >
+                    <StyledIconContainer design={designToggleBtnTwo === true ? 'design' : ''}>
+                        <StyledIconUSA design={designToggleBtnTwo === true ? 'design' : ''} />
+                    </StyledIconContainer>
+                    <ToggleParagraphFont design={designToggleBtnTwo === true ? 'design' : ''}>{t('internship.usa')}</ToggleParagraphFont>
+                    {designToggleBtnOne === false && designToggleBtnTwo === true
+                    && <StyledIconCheck /> 
+                    }
+                </StyledToggleBtnContent>
+            </StyledToggleContainerContent>
+        </StyledToggle>
     );
 }
 

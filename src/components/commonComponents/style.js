@@ -12,7 +12,7 @@ export const StyledBox = styled.div`
 
     @media ${device.tabletS} { 
         width: 100%;
-      }
+    }
 `
 export const StyledHeaderLogoContainer = styled.div`
     ${StartCenterWrapStyle}
@@ -21,7 +21,7 @@ export const StyledHeaderLogoContainer = styled.div`
     @media ${device.mobileL} {
         margin-bottom: 15px;
         justify-content: center;
-      }
+    }
 `
 export const StyledFooterLogoContainer = styled.div`
     ${CenterCenterWrapStyle}
@@ -33,7 +33,7 @@ export const StyledFooterLogoContainer = styled.div`
     @media ${device.tabletS} { 
         width: 100%;
         height: 100px;
-      }
+    }
 `
 export const StyledLinkDiv = styled.div`
     margin-top: -5px;

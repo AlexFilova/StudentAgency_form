@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {device} from '../../../styles/responsivity';
 import { white, bordergrey, blueGreen, linearGradient } from '../../../styles/colors';
 
 export const StyledTimeContainer = styled.div`
@@ -30,5 +31,9 @@ export const StyledTimeBtn = styled.option`
         border-radius: .5rem;
         border-color: ${blueGreen};
     }
+
+    @media ${device.mobileL} { 
+        width: 40%;
+      }
        
 `
