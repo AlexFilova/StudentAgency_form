@@ -1,6 +1,13 @@
 import {useTranslation} from 'react-i18next';
-import {StyledErrorSubPage, StyledErrorDivImg, StyledErrorDivText, StyledErrorTitle, StyledErrorcontent} from './style'
-import oopsError from '../../../images/oops.svg';
+import {
+    StyledErrorSubPage,
+    StyledErrorDivImg,
+    StyledErrorImg,
+    StyledSideDivBox,
+    StyledSideTitle,
+    StyledSideContent,
+} from './style';
+import errorPicure from '../../../images/error.svg';
 
 const ApiError = () => {
 
@@ -9,20 +16,15 @@ const ApiError = () => {
     return (
         <StyledErrorSubPage>
             <StyledErrorDivImg>
-                <img src={oopsError} alt={t('imagesAlt.oopsError')}/>
+                <StyledErrorImg src={errorPicure} alt={t('imagesAlt.oopsError')} />
             </StyledErrorDivImg>
-            <StyledErrorDivText>
-                <StyledErrorTitle>{t('errorMessages.noDataErrorTitle')}</StyledErrorTitle>
-                <StyledErrorcontent>{t('errorMessages.noDataErrorContent')}</StyledErrorcontent>
-            </StyledErrorDivText>
+            <StyledSideDivBox>
+                <StyledSideTitle>{t('errorMessages.noDataErrorTitle')}</StyledSideTitle>
+                <StyledSideContent>{t('errorMessages.noDataErrorContent')}</StyledSideContent>
+            </StyledSideDivBox>
 
         </StyledErrorSubPage>
-
-
      );
-}
-
-ApiError.propTypes = {
 };
 
 export default ApiError;
