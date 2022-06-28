@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {useTranslation} from "react-i18next";
 import {StyledHeaderLogoContainer, StyledFooterLogoContainer} from "./style";
 import Logo from './../../images/logo_You_CanDoThis.svg';
