@@ -10,12 +10,22 @@ import {
 import {getKeyFormValues,
         checkIfEveryElementIsTrue
 } from '../../../../utils/common/functions'
-import {validateFirstPage, validateSecondPage} from '../../../../utils/common/validations'
-import {StyledFormWrapper, StyledProgressBar, StyledActiveBar, StyledDisActiveBar, StyledButtonWrapper, StyledButton, StyledNextButton, StyledButtonContainer} from './styles';
+import {validateFirstPage, validateSecondPage, validateThirdPage} from '../../../../utils/common/validations'
+import {
+    StyledFormWrapper,
+    StyledProgressBar,
+    StyledActiveBar,
+    StyledDisActiveBar,
+    StyledButtonWrapper,
+    StyledBackButton,
+    StyledNextButton,
+    StyledButtonContainer,
+    StyledConfirmButton} from './styles';
 import SubFormCheck from '../subform/SubFormCheck';
 import SubformPreferency from '../subform/SubformPreferency';
 import SubFormPersonalInfo from '../subform/SubFormPersonalInfo';
 import ApiError from '../../../commonComponents/sideComponents/ApiError';
+import FinalPage from '../../../commonComponents/sideComponents/FinalPage';
 
 const Form = () => {
 
@@ -30,27 +40,22 @@ const Form = () => {
     const [btnStates, setBtnStates] = useState(defaultValuesTimeButton);
     const [firstPageErrors, setFirstPageErrors] = useState({});
     const [secondPageErrors, setSecondPageErrors] = useState({});
+    const [thirdPageErrors, setThirdPageErrors] = useState({});
+    console.log('thirdPageErrors');
+    console.log(thirdPageErrors);
     const [page, setPage] = useState(0);
-    const [isClicked, setIsClicked] = useState(false)
-    console.log('isClicked');
-    console.log(isClicked);
+    const [isClicked, setIsClicked] = useState(false);
+    const [isActive, setIsActive] = useState(false);
+    const [isCheckBoxConfirmed, setIsCheckBoxConfirmed] = useState(false);
+    console.log('isCheckBoxConfirmed');
+    console.log(isCheckBoxConfirmed);
+    const [isFormConfirmed, setIsFormConfirmed] = useState(false);
+    console.log('isFormConfirmed');
+    console.log(isFormConfirmed);
     const [isError, setIsError] = useState(false);
 
     const noErrorsPageOne = Object.keys(firstPageErrors).length === 0;
     const noErrorsPageTwo = Object.keys(secondPageErrors).length === 0;
-    // const {
-    //         localitySpecificationEu,
-    //         localitySpecificationUsa,
-    //         job,
-    //         time,
-    //         name,
-    //         lastname,
-    //         email,
-    //         phone,
-    //     } = formValues
-    // const firstPageFormValuesEu = localitySpecificationEu && job && time;
-    // const firstPageFormValuesUsa = localitySpecificationUsa && job && time;
-    // const secondPageFormValues = localitySpecificationUsa && job && time;
 
     const missingCoutry = t('errorMessages.missingCoutry');
     const missingJob = t('errorMessages.missingJob');
@@ -61,7 +66,10 @@ const Form = () => {
     const invalidFormatName = t('errorMessages.invalidFormatName');
     const invalidFormatLastName = t('errorMessages.invalidFormatLastName');
     const invalidFormatEmail = t('errorMessages.invalidFormatEmail');
-    const invalidFormatPhone = t('errorMessages.invalidFormatPhone');
+    const invalidFormatPhoneTooShort = t('errorMessages.invalidFormatPhoneTooShort');
+    const invalidFormatPhoneTooLong = t('errorMessages.invalidFormatPhoneTooLong');
+    const missingConfirmation = t('errorMessages.confirmationError');
+
     
     const getData = async () => {
         const data = await fetchData();
@@ -69,7 +77,7 @@ const Form = () => {
             const euCountries = data[0];
             const arrayEuCountries = Object.values(euCountries);
             const optionsAttributesEuCountries =
-                arrayEuCountries[0].map(euCountry => ({
+                arrayEuCountries[0].sort().map(euCountry => ({
                     value: euCountry,
                     label: euCountry,
                 }))
@@ -77,7 +85,7 @@ const Form = () => {
             const usaStates = data[1];
             const arrayUsaStates = Object.values(usaStates);
             const optionsAttributesUsaStates =
-                arrayUsaStates[0].map(usaState => ({
+                arrayUsaStates[0].sort().map(usaState => ({
                     value: usaState,
                     label: usaState,
                 }))
@@ -85,7 +93,7 @@ const Form = () => {
             const jobs = data[2];
             const arrayJobs = Object.values(jobs);
             const optionsAttributesJobs =
-                arrayJobs[0].map(job => ({
+                arrayJobs[0].sort().map(job => ({
                     value: job,
                     label: job,
                 }))
@@ -103,54 +111,81 @@ const Form = () => {
 
     useEffect(() => {
         window.scroll(0, 100)
-    },[page]);
+    },[page, isFormConfirmed]);
 
     useEffect(() => {
-        if(page === 0 && isClicked === true && noErrorsPageOne) {
+        if(page === 0 && isClicked === true && noErrorsPageOne === true) {
             setPage(currentPage => (currentPage + 1))
             setIsClicked(false)
+            setIsActive(false)
         }
-        if(page === 1 && isClicked === true && noErrorsPageTwo) {
+        if(page === 1 && isClicked === true && noErrorsPageTwo === true) {
             setPage(currentPage => (currentPage + 1))
             setIsClicked(false)
+            setIsActive(false)
+        }
+        if(noErrorsPageOne === false || noErrorsPageTwo === false){
+            setIsClicked(false)
+            setIsActive(false)
         }
     }, [isClicked, noErrorsPageOne, noErrorsPageTwo, page])
 
     useEffect(() => {
-        if(formValues.phone === undefined) {
-            setFormValues(prevState => (
-                {...prevState, 'phone': defaultValuesForm.phone}
-            ))
+        if(page === 0) {
+            if (checkIfEveryElementIsTrue(getKeyFormValues(formValues,0,2,3,5)) === true
+                || checkIfEveryElementIsTrue(getKeyFormValues(formValues,0,1,2,5)) === true) {
+    
+                setIsActive(true)
+            }
         }
-    }, [formValues.phone])
+        if(page === 1 && typeof formValues.phone === 'string') {
+            if ((checkIfEveryElementIsTrue(getKeyFormValues(formValues,5,8)) === true
+                && formValues.phone.length > 12
+                && formValues.phone.length < 15)
+                ) {
+    
+                setIsActive(true)
+            }
+            if (checkIfEveryElementIsTrue(getKeyFormValues(formValues,5,8)) === false ||
+                (formValues.phone.length < 13 || formValues.phone.length > 14)) {
+    
+                setIsActive(false)
+            }
+        }
+    },[formValues, page]);
+
+    useEffect(() => {
+    if(formValues.phone === undefined) {
+        setFormValues(prevState => (
+            {...prevState, 'phone': defaultValuesForm.phone}
+        ))
+    }
+    }, [formValues.phone, setFormValues])
 
     const handleToggleButtonEvent = (e, accessor) => {
         setFormValues(prevState => (
             {...prevState, [accessor]: e.target.value}
             ))
-    }
-
-    const handleChangeTimeBtn = (e, accessor) => {
-        setFormValues(prevState => (
-            {...prevState, [accessor]: e.target.value}
-            ))
-
-        const timeId = e.target.id;
-        const truthyFalsyLogic = btnStates.map(obj => ({...obj, btnBoolean: timeId.includes(obj.id)}));
-        setBtnStates (truthyFalsyLogic);
-
-        if(firstPageErrors[accessor]){
-            delete firstPageErrors[accessor];
-        }
+            if(formValues.locality === 'USA') {
+                setFormValues(prevState => (
+                    {...prevState, 'localitySpecificationUsa': ''}
+                ));
+            };
+            if(formValues.locality === 'EU') {
+                setFormValues(prevState => (
+                    {...prevState, 'localitySpecificationEu': ''}
+                ));
+            };
+            setIsActive(false)
     }
 
     const handleToggleRelatedEvent = (value, accessorOne, accessorTwo) => {
-        setFormValues(prevState => ({
-            ...prevState, [accessorOne]: value
-         }))
-        setFormValues(prevState => ({
-            ...prevState, [accessorTwo]: ''
-         }))
+        setFormValues(prevState => (
+            {...prevState, [accessorOne]: value}
+        ));
+        setFormValues(prevState => (
+            {...prevState, [accessorTwo]: ''}
+        ));
 
          setIsClicked(false)
 
@@ -162,23 +197,39 @@ const Form = () => {
         }
     }
 
-    const handleEventValue = (value, accessor) => {
-        setFormValues(prevState => ({
-           ...prevState, [accessor]: value
-        }))
+    const handleChangeTimeOptions = (e, accessor) => {
+        setFormValues(prevState => (
+            {...prevState, [accessor]: e.target.value}
+        ));
+
+        const timeId = e.target.id;
+        const truthyFalsyLogic = btnStates.map(obj => ({...obj, btnBoolean: timeId.includes(obj.id)}));
+        setBtnStates(truthyFalsyLogic);
 
         if(firstPageErrors[accessor]){
             delete firstPageErrors[accessor];
         }
+    }
+
+    const handleEventValue = (value, accessor) => {
+        setFormValues(prevState => (
+           {...prevState, [accessor]: value}
+        ));
+
+        setIsClicked(false)
+
+        if(firstPageErrors[accessor]){
+            delete firstPageErrors[accessor];
+        };
         if(secondPageErrors[accessor]){
             delete secondPageErrors[accessor];
-        }
+        };
       }
 
     const handleEventTargetValue = (e, accessor) => {
-    setFormValues(prevState => (
-        {...prevState, [accessor]: e.target.value}
-        ))
+        setFormValues(prevState => (
+            {...prevState, [accessor]: e.target.value}
+            ))
 
         if(secondPageErrors[accessor]){
             delete secondPageErrors[accessor];
@@ -188,6 +239,7 @@ const Form = () => {
     const goBack = () => {
         setPage((currentPage) => currentPage - 1)
         setIsClicked(false)
+        setIsActive(true)
     }
 
     const goNext = () => {
@@ -200,7 +252,7 @@ const Form = () => {
                 setIsClicked(true)
             }
         }
-        if (page === 1) {
+        if (page === 1 && typeof formValues.phone === 'string') {
             setSecondPageErrors(validateSecondPage(
                 formValues,
                 missingName,
@@ -209,16 +261,30 @@ const Form = () => {
                 invalidFormatName,
                 invalidFormatLastName,
                 invalidFormatEmail,
-                invalidFormatPhone,
+                invalidFormatPhoneTooShort,
+                invalidFormatPhoneTooLong
                 ))
             
-            if (checkIfEveryElementIsTrue(getKeyFormValues(formValues,5,8)) === true && formValues.phone.length > 5) {
+            if (checkIfEveryElementIsTrue(getKeyFormValues(formValues,5,8)) === true
+                && (formValues.phone.length > 13 || formValues.phone.length < 15)
+                && noErrorsPageTwo === true) {
 
                 setIsClicked(true)
             }
         }
     }
 
+    const onCheckBox = (e) => {
+        if(e.target.checked){
+            setIsCheckBoxConfirmed(true);
+            if(thirdPageErrors.confirmation ){
+                delete thirdPageErrors.confirmation;
+            }
+        } else {setIsCheckBoxConfirmed(false);}
+        
+    }
+
+    //move into function!!!!!!!!!!!!!!!!!!
     const getValueOfValueKey = (object, key) => {
         const goal = object[key];
         if(goal) {
@@ -229,20 +295,33 @@ const Form = () => {
 
     const submit = (e) => {
         e.preventDefault();
-        const createPostData = {id: uuidv4(), ...formValues};
-        if(createPostData) {
-            getValueOfValueKey(createPostData, 'job');
-            if(createPostData.localitySpecificationUsa.length === 0){
-                getValueOfValueKey(createPostData, 'localitySpecificationEu');
-                createPostData['localitySpecificationUsa'] = null
-            }
-            if(createPostData.localitySpecificationEu.length === 0){
-                getValueOfValueKey(createPostData, 'localitySpecificationUsa');
-                createPostData['localitySpecificationEu'] = null
-            }
-            console.log(createPostData);
+
+        setThirdPageErrors(validateThirdPage(
+            isCheckBoxConfirmed,
+            missingConfirmation
+            ))
+
+        if (isCheckBoxConfirmed === false) {
+            setIsFormConfirmed(false)
         }
-        postData(createPostData);
+        if (isCheckBoxConfirmed === true){
+            setIsFormConfirmed(true)
+
+            const createPostData = {id: uuidv4(), ...formValues};
+            if(createPostData) {
+                getValueOfValueKey(createPostData, 'job');
+                if(createPostData.localitySpecificationUsa.length === 0){
+                    getValueOfValueKey(createPostData, 'localitySpecificationEu');
+                    createPostData['localitySpecificationUsa'] = null
+                }
+                if(createPostData.localitySpecificationEu.length === 0){
+                    getValueOfValueKey(createPostData, 'localitySpecificationUsa');
+                    createPostData['localitySpecificationEu'] = null
+                }
+                console.log(createPostData);
+            }
+            postData(createPostData);
+        }
     }
 
     const PageDisplay = () => {
@@ -262,7 +341,7 @@ const Form = () => {
                         onChangeValState={(e) => handleToggleRelatedEvent(e, 'localitySpecificationUsa', 'localitySpecificationEu')}
                         valWork={formValues.job}
                         onChangeValWork={(e) => handleEventValue(e, 'job')}
-                        onClickValTime={(e) => handleChangeTimeBtn(e, 'time')}
+                        onClickValTime={(e) => handleChangeTimeOptions(e, 'time')}
                         btnStates={btnStates}
                         countryError={firstPageErrors.localitySpecificationEu}
                         stateError={firstPageErrors.localitySpecificationUsa}
@@ -296,6 +375,8 @@ const Form = () => {
                         valLastname={formValues.lastname}
                         valEmail={formValues.email}
                         valPhone={formValues.phone}
+                        onCheckBox={onCheckBox}
+                        confirmationError={thirdPageErrors.confirmation}
                 />
         }
     }
@@ -306,57 +387,63 @@ const Form = () => {
         {isError === true ?
             <ApiError />
             : 
-            <StyledFormWrapper key={FormPages[page]}>
-                <StyledProgressBar>
-                    {FormPages.map((formPage) => (
-                        page === formPage
-                        ? <StyledActiveBar key={Math.floor(Math.random()*1000)} />
-                        : <StyledDisActiveBar key={Math.floor(Math.random()*100000)}/>
-                    ))}
-                </StyledProgressBar>
-                <form onSubmit={submit}>
-                    {subForm}
-                    <StyledButtonContainer>
-                        <StyledButtonWrapper>
-                            {page > 0 &&
-                                <StyledButton
-                                    type='button'
-                                    backBtn
-                                    disabled={page === 0}
-                                    onClick={() => {
-                                        goBack()
-                                    }}
-                                >
-                                    {t('buttons.back')}
-                                </StyledButton>
-                            }
-                        </StyledButtonWrapper>
-                        <StyledButtonWrapper
-                        endJustified
-                        >
-                            {page < FormPages.length -1 &&
-                                <StyledNextButton
-                                    type='button'
-                                    nextBtn
+            <>
+            {isFormConfirmed === true ?
+                <FinalPage />
+                :
+                <StyledFormWrapper key={FormPages[page]}>
+                    <StyledProgressBar>
+                        {FormPages.map((formPage) => (
+                            page === formPage
+                            ? <StyledActiveBar key={Math.floor(Math.random()*1000)} />
+                            : <StyledDisActiveBar key={Math.floor(Math.random()*100000)}/>
+                        ))}
+                    </StyledProgressBar>
+                    <form onSubmit={submit}>
+                        {subForm}
+                        <StyledButtonContainer>
+                            <StyledButtonWrapper>
+                                {page > 0 &&
+                                    <StyledBackButton
+                                        type='button'
+                                        disabled={page === 0}
                                         onClick={() => {
-                                            goNext()
+                                            goBack()
                                         }}
-                                >
-                                    {t('buttons.next')}
-                                </StyledNextButton>
-                            }
-                            {page > FormPages.length -2 &&
-                                <StyledButton
-                                    type='submit'
-                                    submitBtn
-                                >
-                                    {t('buttons.confirmForm')}
-                                </StyledButton>
-                            }
-                        </StyledButtonWrapper>
-                    </StyledButtonContainer>
-                </form>
-            </StyledFormWrapper>
+                                    >
+                                        {t('buttons.back')}
+                                    </StyledBackButton>
+                                }
+                            </StyledButtonWrapper>
+                            <StyledButtonWrapper
+                            endJustified
+                            >
+                                {page < FormPages.length -1 &&
+                                    <StyledNextButton
+                                        type='button'
+                                        nextBtnActive={isActive === true && 'nextBtnActive'}
+                                            onClick={() => {
+                                                goNext()
+                                            }}
+                                    >
+                                        {t('buttons.next')}
+                                    </StyledNextButton>
+                                }
+                                {page > FormPages.length -2 &&
+                                    <StyledConfirmButton
+                                        confirmBtnActive={isCheckBoxConfirmed === true && 'confirmBtnActive'}
+                                        type='submit'
+                                        submitBtn
+                                    >
+                                        {t('buttons.confirmForm')}
+                                    </StyledConfirmButton>
+                                }
+                            </StyledButtonWrapper>
+                        </StyledButtonContainer>
+                    </form>
+                </StyledFormWrapper>
+            }
+            </>
         }
     </>
     );

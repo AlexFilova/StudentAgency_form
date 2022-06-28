@@ -11,19 +11,21 @@ export const StyledBlockWrapper = styled.div`
     height: auto;
     margin: 0 auto;
 `
+export const StyledCheckBox = styled.div`
+    width: 100%;
+`
 export const StyledDiv = styled.div`
     width: 100%;
 `
 export const StyledMainImgResponsivePhone = styled.img`
-@media ${device.desktop} {
     display: none;
-}
-@media ${device.tabletM} {
-    display: block;
-    position: absolute;
-    top: 154px;
-    right: 5%;
-    width: calc(12rem + 1vw);
+
+    @media ${device.tabletM} {
+        display: block;
+        position: absolute;
+        top: 154px;
+        right: 5%;
+        width: calc(12rem + 1vw);
 }
 @media ${device.tabletS} {
     display: none;

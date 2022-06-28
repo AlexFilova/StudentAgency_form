@@ -3,7 +3,7 @@ import {useTranslation} from "react-i18next";
 import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
 import Select from '../../../commonComponents/selectAndInput/Select';
 import {StyledSubFormContainer, StyledDiv, StyledMainImgResponsivePhone} from './style';
-import internshipStudyResposivePhone from '../../../../images/study_in_broad-for_phone.svg';
+import picturePhone from '../../../../images/study_in_broad-for_phone.svg';
 import BigToggle from '../../../commonComponents/toggle/BigToggle';
 import Time from '../../../commonComponents/time/Time';
 
@@ -41,12 +41,12 @@ const SubformPreferency = ({
                 designToggleBtnTwo={designToggleBtnTwo}
                 setdesignToggleBtnOne={setdesignToggleBtnOne}
                 setdesignToggleBtnTwo={setdesignToggleBtnTwo}
-                onBlurValLocality={onBlurValLocality}
+                onBlurValLocality={(e) => onBlurValLocality(e)}
             />
             <div>
 
             <StyledMainImgResponsivePhone
-                src={internshipStudyResposivePhone}
+                src={picturePhone}
                 alt={t('imagesAlt.internshipStudy')}
             />
             </div>

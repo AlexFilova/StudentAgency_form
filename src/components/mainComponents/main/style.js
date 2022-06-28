@@ -5,12 +5,16 @@ export const StyledMainWrapper = styled.main`
     margin: 40px 0;
 `
 export const StyledFormContainer = styled.section`
-    width: 55%;
-    height: auto;
-    display: flex;
-    justify-content: start;
-    align-items: start;
-    flex-wrap: nowrap;
+    width: 42%;
+
+    @media ${device.laptopL} {
+        width: 55%;
+        height: auto;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-wrap: nowrap;
+      }
 
     @media ${device.tabletM} {
         width: 100%;
@@ -25,16 +29,15 @@ export const StyledPictureContainer = styled.section`
 `
 export const StyledMainImg = styled.img`
     margin-top: 80px;
-    width: 380px;
+    width: 100%;
 
     @media ${device.laptop} {
         display: none;
       }
 `
 export const StyledMainImgResponsiveTablet = styled.img`
-    @media ${device.desktop} {
-        display: none;
-    }
+    display: none;
+    
     @media ${device.laptop} {
         display: block;
         margin-top: 75px;

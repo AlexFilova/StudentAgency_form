@@ -49,12 +49,12 @@ export const StyledButtonWrapper = styled.div`
     width: 50%;
     height: 59px;
 `
-export const StyledButton = styled.button`
+export const StyledBackButton = styled.button`
     ${CommonFont}
-    width: ${props => props.backBtn ? '90px ': '160px'};
+    width: 90px;
     height: 59px;
     color: ${white};
-    background-color: ${props => props.backBtn ? `${darkPink}`: `${blueGreen}`};
+    background-color: ${darkPink};
     border-radius: 6.25rem;
     border: none;
     box-shadow: ${props => props.submitBtn && `${shadowButton}`};
@@ -64,7 +64,17 @@ export const StyledNextButton = styled.button`
     color: ${white};
     width: 160px;
     height: 59px;
-    background-color: ${darkgrey};
+    background-color: ${props => !props.nextBtnActive ? `${darkgrey} ` : `${blueGreen}`};
+    border-radius: 6.25rem;
+    border: none;
+    box-shadow: ${shadowButton};
+`
+export const StyledConfirmButton = styled.button`
+    ${CommonFont}
+    color: ${white};
+    width: 160px;
+    height: 59px;
+    background-color: ${props => !props.confirmBtnActive ? `${darkgrey} ` : `${blueGreen}`};
     border-radius: 6.25rem;
     border: none;
     box-shadow: ${shadowButton};

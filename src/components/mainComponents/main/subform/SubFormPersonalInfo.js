@@ -68,7 +68,7 @@ const SubFormPersonalInfo = ({
                     defaultCountry="SK"
                     value={valPhone}
                     onChange={onChangeValPhone}
-                    countries={["SK", "CZ", "HU", "KY"]}
+                    countries={["SK", "CZ",]}
                     />
             </StyledSelectBox>
             </>

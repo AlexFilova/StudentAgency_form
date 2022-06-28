@@ -1,7 +1,8 @@
 import PropTypes, {string, shape} from 'prop-types';
 import {useTranslation} from "react-i18next";
-import {StyledSubFormContainer, StyledBlockWrapper} from './style';
+import {StyledSubFormContainer, StyledBlockWrapper, StyledCheckBox} from './style';
 import {SubFormTitleFont, TitleCheckSubFormFont, ParagraphCheckSubFormFont} from "../../../../styles/fontStyles";
+import {StyledErrorMessage} from '../../../commonComponents/selectAndInput/style';
 
 const SubFormCheck = ({
     valLocality,
@@ -13,6 +14,8 @@ const SubFormCheck = ({
     valLastname,
     valEmail,
     valPhone,
+    onCheckBox,
+    confirmationError,
 }) => {
 
     const { t } = useTranslation();
@@ -48,7 +51,13 @@ const SubFormCheck = ({
                 <TitleCheckSubFormFont>{t('checkInfo.phone')}</TitleCheckSubFormFont>
                 <ParagraphCheckSubFormFont>{valPhone}</ParagraphCheckSubFormFont>
             </StyledBlockWrapper>
-
+            <div>
+                <StyledErrorMessage>{confirmationError}</StyledErrorMessage>
+                <StyledCheckBox>
+                    <input type='checkbox' id='GDPR' name='GDPR' value='GDPR' onChange={onCheckBox} />
+                    <label htmlFor="GDPR">{t('checkInfo.agreement')}</label>
+                </StyledCheckBox>
+            </div>
         </StyledSubFormContainer>
     );
 }
@@ -75,6 +84,7 @@ SubFormCheck.propTypes = {
     valLastname: PropTypes.string,
     valEmail: PropTypes.string,
     valPhone: PropTypes.string,
+    confirmationError: PropTypes.string,
 };
 
 export default SubFormCheck;
