@@ -3,8 +3,8 @@ import {SpaceBetweenStartWrapStyle} from '../../../styles/styles';
 import {grey} from '../../../styles/colors';
 
 export const StyledFooterSection = styled.footer`
-    max-width: 1440px;
-    min-width: 360px;
+    max-width: 1920px;
+    min-width: 320px;
     margin: 0 auto;
 `
 export const StyledFooterContainer = styled.div`

@@ -13,7 +13,7 @@ export const StyledHeaderSection = styled.header`
 `
 export const StyledHeaderElement = styled.div`
     ${SpaceBetweenCenterNoWrapStyle}
-    width: 150px;
+    width: 170px;
 `
 export const StyledIcon = styled.div`
     width: 30px;
@@ -21,7 +21,7 @@ export const StyledIcon = styled.div`
 `
 export const StyledTranslator = styled.div`
     ${SpaceBetweenCenterNoWrapStyle}
-    width: 70px;
+    width: 75px;
     height: 30px;
     line-height: 32.5px;
 `
