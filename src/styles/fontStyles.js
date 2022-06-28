@@ -91,7 +91,7 @@ export const ToggleParagraphFont = styled.p`
     color: ${props => props.design ? `${white}` : `${lightblack}` };
     line-height: 1.3rem;
     font-weight: 600;
-    padding: .2rem .8rem;
+    padding: .2rem 1.4rem;
 `
 // error message font
 export const MessageParagraphFont = styled.p`

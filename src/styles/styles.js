@@ -39,8 +39,8 @@ export const SpaceBetweenStartNoWrapStyle = css`
 `
 export const StyledContainer = styled.div`
     ${SpaceBetweenCenterWrapStyle}
-    max-width: 1440px;
-    min-width: 360px;
+    max-width: 1920px;
+    min-width: 320px;
     margin: 0 auto;
     padding: 0.5rem 10%;
 
