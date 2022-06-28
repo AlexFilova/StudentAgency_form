@@ -15,7 +15,7 @@ export const validateFirstPage = (values, missingCoutry, missingJob, missingTime
     return errors;
 }
 
-export const validateSecondPage = (values, missingName, missingLastName, missingEmail, invalidFormatName, invalidFormatLastName, invalidFormatEmail, invalidFormatPhone) => {
+export const validateSecondPage = (values, missingName, missingLastName, missingEmail, invalidFormatName, invalidFormatLastName, invalidFormatEmail, invalidFormatPhoneTooShort, invalidFormatPhoneTooLong) => {
     const errors={};
     const nameRegex=/^[a-zA-Z]+$/i;
     const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -34,8 +34,19 @@ export const validateSecondPage = (values, missingName, missingLastName, missing
     } else if(!emailRegex.test(values.email)) {
         errors.email = invalidFormatEmail;
     }
-    if(values.phone.length < 6) {
-        errors.phone = invalidFormatPhone;
-    } 
+    if(values.phone.length < 13) {
+        errors.phone = invalidFormatPhoneTooShort;
+    } else if(values.phone.length > 14) {
+        errors.phone = invalidFormatPhoneTooLong;
+    }
+    return errors;
+}
+export const validateThirdPage = (values, missingConfirmation) => {
+    const errors={};
+    if(values === false) {
+        errors.confirmation = missingConfirmation;
+    }
+    console.log('errors');
+    console.log(errors);
     return errors;
 }
