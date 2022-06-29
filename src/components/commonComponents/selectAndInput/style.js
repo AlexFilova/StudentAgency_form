@@ -3,7 +3,7 @@ import Select from 'react-select';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import { LabelParagraphFont, PlaceholderParagraphFont, WriteInputStyleFont } from '../../../styles/fontStyles';
-import {redPink, bordergrey, darkgrey, blueGreen} from '../../../styles/colors';
+import {redPink, bordergrey, darkgrey, blueGreen, lightBlueGreen} from '../../../styles/colors';
 
 export const StyledErrorMessage = styled.span`
     color: ${redPink};
@@ -86,6 +86,12 @@ export const StyledSelect = styled(Select)`
             padding:0;
         }
     }
+    .Select__option--is-focused{
+        background-color: ${lightBlueGreen};
+    }
+    .css-9gakcf-option{
+        background-color: ${blueGreen};
+    }
 `
 
 export const StyledInput = styled.input`
@@ -145,4 +151,4 @@ export const StyledPhoneInput = styled(PhoneInput)`
             outline: none;
         }
     }
-    `
+`
