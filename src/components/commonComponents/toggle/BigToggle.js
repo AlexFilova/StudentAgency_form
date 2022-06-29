@@ -3,9 +3,9 @@ import {useTranslation} from 'react-i18next';
 import {
     StyledToggle,
     StyledToggleButtonWrapper,
-    StyledToggleContainerContent,
+    StyledToggleContentWrapper,
     StyledToggleButton,
-    StyledToggleBtnContent,
+    StyledToggleContent,
     StyledIconContainer,
     StyledIconEU,
     StyledIconUSA,
@@ -25,6 +25,31 @@ const BigToggle = ({
 
     return (
         <StyledToggle>
+            <StyledToggleContentWrapper>
+                <StyledToggleContent
+                    primary
+                    design={designToggleBtnOne === true ? 'design' : ''}
+                    >
+                    <StyledIconContainer  design={designToggleBtnOne === true ? 'design' : ''}>
+                        <StyledIconEU  design={designToggleBtnOne === true ? 'design' : ''}/>
+                    </StyledIconContainer>
+                    <ToggleParagraphFont design={designToggleBtnOne === true ? 'design' : ''}>{t('internship.europe')}</ToggleParagraphFont>
+                    {designToggleBtnOne === true && designToggleBtnTwo === false
+                    && <StyledIconCheck /> 
+                    }
+                </StyledToggleContent>
+                <StyledToggleContent
+                    design={designToggleBtnTwo === true ? 'design' : ''}
+                >
+                    <StyledIconContainer design={designToggleBtnTwo === true ? 'design' : ''}>
+                        <StyledIconUSA design={designToggleBtnTwo === true ? 'design' : ''} />
+                    </StyledIconContainer>
+                    <ToggleParagraphFont design={designToggleBtnTwo === true ? 'design' : ''}>{t('internship.usa')}</ToggleParagraphFont>
+                    {designToggleBtnOne === false && designToggleBtnTwo === true
+                    && <StyledIconCheck /> 
+                    }
+                </StyledToggleContent>
+            </StyledToggleContentWrapper>
             <StyledToggleButtonWrapper>
                 <StyledToggleButton
                     name='toggleOne'
@@ -50,31 +75,6 @@ const BigToggle = ({
                     >
                 </StyledToggleButton>
             </StyledToggleButtonWrapper>
-            <StyledToggleContainerContent>
-                <StyledToggleBtnContent
-                    primary
-                    design={designToggleBtnOne === true ? 'design' : ''}
-                    >
-                    <StyledIconContainer  design={designToggleBtnOne === true ? 'design' : ''}>
-                        <StyledIconEU  design={designToggleBtnOne === true ? 'design' : ''}/>
-                    </StyledIconContainer>
-                    <ToggleParagraphFont design={designToggleBtnOne === true ? 'design' : ''}>{t('internship.europe')}</ToggleParagraphFont>
-                    {designToggleBtnOne === true && designToggleBtnTwo === false
-                    && <StyledIconCheck /> 
-                    }
-                </StyledToggleBtnContent>
-                <StyledToggleBtnContent
-                    design={designToggleBtnTwo === true ? 'design' : ''}
-                >
-                    <StyledIconContainer design={designToggleBtnTwo === true ? 'design' : ''}>
-                        <StyledIconUSA design={designToggleBtnTwo === true ? 'design' : ''} />
-                    </StyledIconContainer>
-                    <ToggleParagraphFont design={designToggleBtnTwo === true ? 'design' : ''}>{t('internship.usa')}</ToggleParagraphFont>
-                    {designToggleBtnOne === false && designToggleBtnTwo === true
-                    && <StyledIconCheck /> 
-                    }
-                </StyledToggleBtnContent>
-            </StyledToggleContainerContent>
         </StyledToggle>
     );
 }

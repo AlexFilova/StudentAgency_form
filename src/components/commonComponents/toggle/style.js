@@ -1,5 +1,5 @@
 import styled, {css} from 'styled-components';
-import {device} from '../../../styles/responsivity';
+// import {device} from '../../../styles/responsivity';
 import { white, lightgrey, grey, darkgrey, blueGreen, iconDarkBlueGreen, greyBlueGreen, linearGradient, shadowToggle } from '../../../styles/colors';
 import { GiEuropeanFlag}  from "react-icons/gi";
 import { FaFlagUsa, FaCheck } from "react-icons/fa";
@@ -8,47 +8,25 @@ const toggleHeight = '160px';
 const transformedtoggleHeight = `${parseFloat(toggleHeight)+4}px`
 
 export const StyledToggle = styled.div`
-    width: 530px;
-
-    @media ${device.laptopL} {
-        width: 100%;
-    }
+    display: block;
+    width: 100%;
 `
 export const StyledToggleButtonWrapper = styled.div`
-    position: absolute;
-    z-index:2000;
-    width: 530px;
+    position: relative;
+    width: 100%;
+    margin-top: -160px;
     height: ${toggleHeight};
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @media ${device.laptopL} {
-        width: 37.4%;
-    }
-    @media ${device.tabletM} {
-        width: 48%;
-    }
-    @media ${device.tabletS} {
-        width: 80%;
-    }
-    @media ${device.mobileS} {
-        min-width: 260px;
-    }
 `
-export const StyledToggleContainerContent = styled.div`
+export const StyledToggleContentWrapper = styled.div`
+    position: relative;
     width: 100%;
     height: ${toggleHeight};
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @media ${device.tabletM} {
-        width: 60%;
-    }
-    @media ${device.tabletS} {
-        width: 100%;
-    }
 `
 export const StyledToggleButton= styled.button`
     width: 50%;
@@ -59,7 +37,7 @@ export const StyledToggleButton= styled.button`
     border-radius: ${props => props.primary ? '1rem 0 0 1rem' : '0 1rem 1rem 0'};
     background-color: transparent;
 `
-export const StyledToggleBtnContent= styled.div`
+export const StyledToggleContent= styled.div`
     position: relative;
     width: 50%;
     height: ${toggleHeight} ;
@@ -100,8 +78,8 @@ export const StyledIconUSA = styled(FaFlagUsa)`
 `
 export const StyledIconCheck = styled(FaCheck)`
     position: absolute;
-    bottom: 15px;
-    right: 20px;
-    color: white;
-    font-size: 1.5rem;
+    bottom: 25px;
+    right: 35px;
+    color: ${white};
+    font-size: 1.6rem;
 `
