@@ -11,17 +11,15 @@ export const StyledTimeContainer = styled.div`
     flex-wrap: wrap;
 `
 export const StyledTimeBtn = styled.option`
-    width: 35%;
+    width: 40%;
     height: 2.8rem;
-    height: calc(3rem + 0.5vw);
     margin: 0.8rem 2%;
     border-radius: 1rem;
     border: 1.3px solid ${bordergrey};
     padding: 0.438rem;
-    font-size: 1rem;
-    font-size: calc(0.85rem + .5vw);
-    line-height: 2rem;
-    line-height: calc(2rem + .5vw);
+    font-size: 0.9rem;
+    font-size: calc(0.75rem + .5vw);
+    line-height: 2.8rem;
     font-weight: 800;
     text-align: center;
     color: ${props => props.timeDesign && `${white}` };
@@ -35,8 +33,13 @@ export const StyledTimeBtn = styled.option`
         border-color: ${blueGreen};
     }
 
-    @media ${device.laptop} { 
-        width: 29%;
-      }
-       
+    @media ${device.tabletS} { 
+        width: 25%;
+    } 
+    @media ${device.tabletM} { 
+        width: 35%;
+    } 
+    @media ${device.laptopXL} { 
+        width: 26%;
+    } 
 `
