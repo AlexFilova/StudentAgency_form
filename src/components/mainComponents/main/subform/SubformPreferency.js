@@ -54,8 +54,8 @@ const SubformPreferency = ({
                 <SmallTitleFont>{t('internship.preferency')}</SmallTitleFont>
                 {designToggleBtnOne === true && designToggleBtnTwo === false ?
                      <Select
-                     htmlFor={'country'}
-                     id={'country'}
+                     htmlFor={'localitySpecificationEu'}
+                     id={'localitySpecificationEu'}
                      selectLabel={t('internship.labelCountry')}
                      placeholder={t('internship.palceholderCountry')}
                      isSearchable={true}
@@ -66,8 +66,8 @@ const SubformPreferency = ({
                      />
                     :
                     <Select
-                    htmlFor={'state'}
-                    id={'state'}
+                    htmlFor={'localitySpecificationUsa'}
+                    id={'localitySpecificationUsa'}
                     selectLabel={t('internship.labelState')}
                     placeholder={t('internship.palceholderState')}
                     isSearchable={true}
@@ -78,8 +78,8 @@ const SubformPreferency = ({
                     />
                 }
                 <Select
-                    htmlFor={'work'}
-                    id={'work'}
+                    htmlFor={'job'}
+                    id={'job'}
                     selectLabel={t('internship.labelWorkArea')}
                     placeholder={t('internship.palceholderWorkArea')}
                     isSearchable={true}
@@ -91,6 +91,7 @@ const SubformPreferency = ({
             </div>
             <SmallTitleFont>{t('internship.time.timeTitle')}</SmallTitleFont>
             <Time
+                id='time'
                 onClick={onClickValTime}
                 btnStates={btnStates}
                 errorMessage={timeError}

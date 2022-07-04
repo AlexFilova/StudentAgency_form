@@ -11,3 +11,11 @@ export const checkIfEveryElementIsTrue = (elements) => {
     
     return trueOrFalseResult;
 }
+
+export const getValueOfValueKey = (object, key) => {
+    const goal = object[key];
+    if(goal) {
+        const getItem = Object.values(goal).map(j => j)[0];
+        object[key] = getItem;
+    }
+}

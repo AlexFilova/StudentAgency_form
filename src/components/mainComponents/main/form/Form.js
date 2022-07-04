@@ -8,7 +8,8 @@ import {
     FormPages,
 } from '../../../../utils/common/constants'
 import {getKeyFormValues,
-        checkIfEveryElementIsTrue
+        checkIfEveryElementIsTrue,
+        getValueOfValueKey,
 } from '../../../../utils/common/functions'
 import {validateFirstPage, validateSecondPage, validateThirdPage} from '../../../../utils/common/validations'
 import {
@@ -41,17 +42,11 @@ const Form = () => {
     const [firstPageErrors, setFirstPageErrors] = useState({});
     const [secondPageErrors, setSecondPageErrors] = useState({});
     const [thirdPageErrors, setThirdPageErrors] = useState({});
-    console.log('thirdPageErrors');
-    console.log(thirdPageErrors);
     const [page, setPage] = useState(0);
     const [isClicked, setIsClicked] = useState(false);
     const [isActive, setIsActive] = useState(false);
-    const [isCheckBoxConfirmed, setIsCheckBoxConfirmed] = useState(false);
-    console.log('isCheckBoxConfirmed');
-    console.log(isCheckBoxConfirmed);
+    const [isChecked, setIsChecked] = useState(false);
     const [isFormConfirmed, setIsFormConfirmed] = useState(false);
-    console.log('isFormConfirmed');
-    console.log(isFormConfirmed);
     const [isError, setIsError] = useState(false);
 
     const noErrorsPageOne = Object.keys(firstPageErrors).length === 0;
@@ -107,11 +102,11 @@ const Form = () => {
 
     useEffect(() => {
             getData()
-    },[]);
+    },[])
 
     useEffect(() => {
         window.scroll(0, 100)
-    },[page, isFormConfirmed]);
+    },[page, isFormConfirmed])
 
     useEffect(() => {
         if(page === 0 && isClicked === true && noErrorsPageOne === true) {
@@ -152,7 +147,7 @@ const Form = () => {
                 setIsActive(false)
             }
         }
-    },[formValues, page]);
+    },[formValues, page])
 
     useEffect(() => {
     if(formValues.phone === undefined) {
@@ -161,6 +156,20 @@ const Form = () => {
         ))
     }
     }, [formValues.phone, setFormValues])
+
+    const scrollOnFirstError = (errors) => {
+        const firstError = Object.keys(errors)[0];
+        const element = document.getElementById(firstError);
+
+        if(element){
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+            })
+        }
+    }
+    scrollOnFirstError(firstPageErrors)
+    scrollOnFirstError(secondPageErrors)
 
     const handleToggleButtonEvent = (e, accessor) => {
         setFormValues(prevState => (
@@ -276,35 +285,26 @@ const Form = () => {
 
     const onCheckBox = (e) => {
         if(e.target.checked){
-            setIsCheckBoxConfirmed(true);
-            if(thirdPageErrors.confirmation ){
+            setIsChecked(true);
+            if(thirdPageErrors.confirmation){
                 delete thirdPageErrors.confirmation;
             }
-        } else {setIsCheckBoxConfirmed(false);}
+        } else {setIsChecked(false);}
         
-    }
-
-    //move into function!!!!!!!!!!!!!!!!!!
-    const getValueOfValueKey = (object, key) => {
-        const goal = object[key];
-        if(goal) {
-            const getItem = Object.values(goal).map(j => j)[0];
-            object[key] = getItem;
-        }
     }
 
     const submit = (e) => {
         e.preventDefault();
 
         setThirdPageErrors(validateThirdPage(
-            isCheckBoxConfirmed,
+            isChecked,
             missingConfirmation
             ))
 
-        if (isCheckBoxConfirmed === false) {
+        if (isChecked === false) {
             setIsFormConfirmed(false)
         }
-        if (isCheckBoxConfirmed === true){
+        if (isChecked === true){
             setIsFormConfirmed(true)
 
             const createPostData = {id: uuidv4(), ...formValues};
@@ -318,7 +318,6 @@ const Form = () => {
                     getValueOfValueKey(createPostData, 'localitySpecificationUsa');
                     createPostData['localitySpecificationEu'] = null
                 }
-                console.log(createPostData);
             }
             postData(createPostData);
         }
@@ -376,6 +375,7 @@ const Form = () => {
                         valEmail={formValues.email}
                         valPhone={formValues.phone}
                         onCheckBox={onCheckBox}
+                        isChecked={isChecked}
                         confirmationError={thirdPageErrors.confirmation}
                 />
         }
@@ -431,7 +431,7 @@ const Form = () => {
                                 }
                                 {page > FormPages.length -2 &&
                                     <StyledConfirmButton
-                                        confirmBtnActive={isCheckBoxConfirmed === true && 'confirmBtnActive'}
+                                        confirmBtnActive={isChecked === true && 'confirmBtnActive'}
                                         type='submit'
                                         submitBtn
                                     >

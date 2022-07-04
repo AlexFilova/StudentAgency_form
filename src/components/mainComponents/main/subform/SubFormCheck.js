@@ -15,6 +15,7 @@ const SubFormCheck = ({
     valEmail,
     valPhone,
     onCheckBox,
+    isChecked,
     confirmationError,
 }) => {
 
@@ -54,7 +55,7 @@ const SubFormCheck = ({
             <div>
                 <StyledErrorMessage>{confirmationError}</StyledErrorMessage>
                 <StyledCheckBox>
-                    <input type='checkbox' id='GDPR' name='GDPR' value='GDPR' onChange={onCheckBox} />
+                    <input type='checkbox' id='GDPR' name='GDPR' onChange={onCheckBox} checked={isChecked}/>
                     <label htmlFor="GDPR">{t('checkInfo.agreement')}</label>
                 </StyledCheckBox>
             </div>
