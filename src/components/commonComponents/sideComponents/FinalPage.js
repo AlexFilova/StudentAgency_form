@@ -1,10 +1,10 @@
 import {useTranslation} from 'react-i18next';
 import {
     StyledFinalSubPage,
-    StyledSideDivBox,
+    StyledSideFinalDivBox,
     StyledSideTitle,
     StyledSideContent,
-    StyledFinalDivImg,
+    StyledFinalImgDiv,
     StyledFinalImg,
 } from './style';
 import finalPicure from '../../../images/study_in_broad-for_phone.svg';
@@ -15,13 +15,13 @@ const FinalPage = () => {
     
     return (
         <StyledFinalSubPage>
-            <StyledSideDivBox>
+            <StyledSideFinalDivBox>
                 <StyledSideTitle done>{t('finalPage.finalTitle')}</StyledSideTitle>
                 <StyledSideContent>{t('finalPage.finalContent')}</StyledSideContent>
-            </StyledSideDivBox>
-            <StyledFinalDivImg>
+            </StyledSideFinalDivBox>
+            <StyledFinalImgDiv>
                 <StyledFinalImg src={finalPicure} alt={t('imagesAlt.oopsError')}/>
-            </StyledFinalDivImg>
+            </StyledFinalImgDiv>
         </StyledFinalSubPage>
      );
 };

@@ -7,11 +7,11 @@ import {
     StyledToggleButton,
     StyledToggleContent,
     StyledIconContainer,
+    ToggleParagraphFont,
     StyledIconEU,
     StyledIconUSA,
     StyledIconCheck
 } from "./style";
-import {ToggleParagraphFont} from "../../../styles/fontStyles";
 
 const BigToggle = ({
     designToggleBtnOne,

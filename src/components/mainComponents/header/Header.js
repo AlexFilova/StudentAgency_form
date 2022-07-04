@@ -1,15 +1,16 @@
 import {useTranslation} from 'react-i18next';
 import { 
     StyledHeaderSection,
-    StyledHeaderElement,
+    StyledContainerHeader,
+    StyledSocialLanguageElement,
+    StyledIconsDiv,
+    StyledTranslatorDiv,
     StyledIcon,
-    StyledTranslator,
     StyledLink,
+    StyledSocialIconFb,
+    StyledSocialIconInsagram,
     StyledButtonLang,
 } from "./style";
-import {StyledContainer} from '../../../styles/styles'
-import {FaFacebookF, FaInstagram} from 'react-icons/fa';
-import {white, darkOrange, darkgrey} from "../../../styles/colors";
 import {LogoHeader} from "../../commonComponents/Logo";
 
 const Header = () => {
@@ -24,47 +25,36 @@ const Header = () => {
 
     return (
             <StyledHeaderSection>
-                <StyledContainer>
-                    <StyledHeaderElement>
-                        <LogoHeader />
-                    </StyledHeaderElement>
-                    <StyledHeaderElement>
-                        <StyledIcon>
-                            <StyledLink href="https://www.facebook.com" target='_blank'>
-                                <FaFacebookF />
-                            </StyledLink>
-                        </StyledIcon>
-                        <StyledIcon>
-                            <StyledLink href="https://www.instagram.com" target='_blank'>
-                                <FaInstagram />
-                            </StyledLink> 
-                        </StyledIcon>
-                        <StyledTranslator>
+                <StyledContainerHeader>
+                    <LogoHeader />
+                    <StyledSocialLanguageElement>
+                        <StyledIconsDiv>
+                            <StyledIcon>
+                                <StyledLink href="https://www.facebook.com" target='_blank'>
+                                    <StyledSocialIconFb />
+                                </StyledLink>
+                            </StyledIcon>
+                            <StyledIcon>
+                                <StyledLink href="https://www.instagram.com" target='_blank'>
+                                    <StyledSocialIconInsagram />
+                                </StyledLink> 
+                            </StyledIcon>
+                        </StyledIconsDiv>
+                        <StyledTranslatorDiv>
                             {Object.keys(lngs).map((lng) => (
                                 <StyledButtonLang 
                                     key={lng}
-                                    style={{
-                                        width: resolved === lng ? '30px' :'20px',
-                                        height: resolved === lng ? '30px' :'20px',
-                                        color: resolved === lng ? `${white}` : `${darkgrey}`,
-                                        borderRadius:'50%',
-                                        border: resolved === lng ? 'none' : `1.3px solid ${darkgrey}`,
-                                        padding: '0',
-                                        fontSize: '.6rem',
-                                        backgroundColor: resolved === lng ? `${darkOrange}` : 'transparent',
-                                        fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal',
-                                        boxShadow: resolved === lng ? 'rgb(0 0 0 / 15%) 0px 6px 7px 2px' : 'none',
-                                    }}
-                                    type="submit"
+                                    resolvedStyle={resolved === lng && 'resolvedStyle'}
+                                    type="button"
                                     onClick={() => i18n.changeLanguage(lng)}
                                 >
                                     {lngs[lng].nativeName}
                                 </StyledButtonLang>
                             ))}
-                        </StyledTranslator>
+                        </StyledTranslatorDiv>
                         
-                    </StyledHeaderElement>
-                </StyledContainer>
+                    </StyledSocialLanguageElement>
+                </StyledContainerHeader>
             </StyledHeaderSection>   
     );
 }

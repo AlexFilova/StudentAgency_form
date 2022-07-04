@@ -1,5 +1,5 @@
 import {useTranslation} from "react-i18next";
-import {StyledHeaderLogoContainer, StyledFooterLogoContainer} from "./style";
+import {StyledHeaderLogoContainer, StyledFooterLogoContainer, StyledLogoImg} from "./style";
 import Logo from './../../images/logo_You_CanDoThis.svg';
 
 export const LogoHeader = () => {
@@ -8,7 +8,7 @@ export const LogoHeader = () => {
 
     return ( 
             <StyledHeaderLogoContainer onClick={() => window.location.reload()}>
-                <img src={Logo} alt={t('imagesAlt.logo')} width={80} height={50} />
+                <StyledLogoImg src={Logo} alt={t('imagesAlt.logo')} />
             </StyledHeaderLogoContainer>
     );
 };
@@ -19,7 +19,7 @@ export const LogoFooter = () => {
 
     return ( 
             <StyledFooterLogoContainer>
-                <img src={Logo} alt={t('imagesAlt.logo')} width={80} height={50} />
+                <StyledLogoImg src={Logo} alt={t('imagesAlt.logo')} width={80} height={50} />
             </StyledFooterLogoContainer>
     );
 }

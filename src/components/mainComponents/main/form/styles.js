@@ -2,15 +2,15 @@ import styled, {css} from 'styled-components';
 import {device} from '../../../../styles/responsivity';
 import {SpaceBetweenCenterNoWrapStyle} from '../../../../styles/styles';
 import {white, darkgrey, darkOrange, ultralightOrange, darkPink, blueGreen, shadowButton} from '../../../../styles/colors';
-import {CommonFont} from '../../../../styles/fontStyles'
+import {ButtonFont} from '../../../../styles/fontStyles'
 
 export const StyledFormWrapper = styled.div`
-    width: 85%;
+    width: 100%;
     height: auto;
 
-    @media ${device.tabletM} { 
-        width: 100%;
-      }
+    @media ${device.laptop} {
+        width: 85%;
+    }
 `
 export const StyledProgressBar = styled.div`
     ${SpaceBetweenCenterNoWrapStyle}
@@ -33,7 +33,6 @@ export const StyledDisActiveBar = styled.div`
     width:20px;
     background-color: ${darkgrey};
 `
-
 export const StyledButtonContainer = styled.div`
     ${SpaceBetweenCenterNoWrapStyle}
     width: 100%;
@@ -50,9 +49,11 @@ export const StyledButtonWrapper = styled.div`
     height: 59px;
 `
 export const StyledBackButton = styled.button`
-    ${CommonFont}
-    width: 90px;
-    height: 59px;
+    ${ButtonFont}
+    width: 7rem;
+    height: 4rem;
+    width: calc(6rem + 1vw);
+    height: calc(3.5rem + 1vw);
     color: ${white};
     background-color: ${darkPink};
     border-radius: 6.25rem;
@@ -60,20 +61,24 @@ export const StyledBackButton = styled.button`
     box-shadow: ${props => props.submitBtn && `${shadowButton}`};
 `
 export const StyledNextButton = styled.button`
-    ${CommonFont}
+    ${ButtonFont}
+    width: 14rem;
+    height: 4rem;
+    width: calc(10rem + 1vw);
+    height: calc(3.5rem + 1vw);
     color: ${white};
-    width: 160px;
-    height: 59px;
     background-color: ${props => !props.nextBtnActive ? `${darkgrey} ` : `${blueGreen}`};
     border-radius: 6.25rem;
     border: none;
     box-shadow: ${shadowButton};
 `
 export const StyledConfirmButton = styled.button`
-    ${CommonFont}
+    ${ButtonFont}
     color: ${white};
-    width: 160px;
-    height: 59px;
+    width: 14rem;
+    height: 4rem;
+    width: calc(14rem + 1vw);
+    height: calc(3.5rem + 1vw);
     background-color: ${props => !props.confirmBtnActive ? `${darkgrey} ` : `${blueGreen}`};
     border-radius: 6.25rem;
     border: none;

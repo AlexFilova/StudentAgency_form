@@ -3,7 +3,7 @@ import {
     StyledErrorSubPage,
     StyledErrorDivImg,
     StyledErrorImg,
-    StyledSideDivBox,
+    StyledSideErrorDivBox,
     StyledSideTitle,
     StyledSideContent,
 } from './style';
@@ -18,11 +18,10 @@ const ApiError = () => {
             <StyledErrorDivImg>
                 <StyledErrorImg src={errorPicure} alt={t('imagesAlt.oopsError')} />
             </StyledErrorDivImg>
-            <StyledSideDivBox>
+            <StyledSideErrorDivBox>
                 <StyledSideTitle>{t('errorMessages.noDataErrorTitle')}</StyledSideTitle>
                 <StyledSideContent>{t('errorMessages.noDataErrorContent')}</StyledSideContent>
-            </StyledSideDivBox>
-
+            </StyledSideErrorDivBox>
         </StyledErrorSubPage>
      );
 };

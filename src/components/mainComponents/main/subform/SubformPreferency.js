@@ -44,11 +44,10 @@ const SubformPreferency = ({
                 onBlurValLocality={(e) => onBlurValLocality(e)}
             />
             <div>
-
-            <StyledMainImgResponsivePhone
-                src={picturePhone}
-                alt={t('imagesAlt.internshipStudy')}
-            />
+                <StyledMainImgResponsivePhone
+                    src={picturePhone}
+                    alt={t('imagesAlt.internshipStudy')}
+                />
             </div>
             </StyledDiv>
             <div>

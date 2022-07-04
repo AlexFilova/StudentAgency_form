@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
-import {StyledLink} from './style'
+import {StyledLink} from './style';
+import {BoxParagraphFont} from '../../styles/fontStyles';
 
 const Contact = ({link, linkContent}) => {
 
     return (
         <>
             <StyledLink href={link} target='_blank'>
-                <p>{linkContent}</p>
+                <BoxParagraphFont>{linkContent}</BoxParagraphFont>
             </StyledLink>
         </>
     );

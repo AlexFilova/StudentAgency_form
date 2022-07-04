@@ -1,38 +1,65 @@
 import styled from 'styled-components';
 import {device} from '../../styles/responsivity';
-import {CenterCenterWrapStyle, StartCenterWrapStyle} from '../../styles/styles';
+import {CenterCenterWrapStyle} from '../../styles/styles';
 import {lightblack} from '../../styles/colors';
 
-
 export const StyledBox = styled.div`
-    padding: 0 5px;
-    margin: 0 2%;
-    width: 190px;
+    width: 100%;
     display: block;
 
     @media ${device.tabletS} { 
-        width: 100%;
+        width: 14.5rem;
+        width: calc(12rem + 5vw);
+        margin: 0 1%;
+    }
+    @media ${device.tabletM} { 
+        width: 19.5rem;
+        width: calc(16rem + 5vw);
+    }
+    @media ${device.laptopM} { 
+        width: 25.3rem;
+        width: calc(19rem + 5vw);
+    }
+    @media ${device.laptopL} { 
+        width: 18rem;
+        width: calc(13.2rem + 5vw);
+        padding: 0;
     }
 `
 export const StyledHeaderLogoContainer = styled.div`
-    ${StartCenterWrapStyle}
-    width: 190px;
+    ${CenterCenterWrapStyle}
+    width: 100%;
+    margin: 0.8rem 0px;
 
-    @media ${device.mobileL} {
-        margin-bottom: 15px;
-        justify-content: center;
+    @media ${device.tabletS} {
+        width: auto;
+        justify-content: start;
+        margin: 0.4rem 0px;
     }
 `
 export const StyledFooterLogoContainer = styled.div`
     ${CenterCenterWrapStyle}
-    padding: 0 5px;
-    margin: 0 2%;
-    width: 190px;
-    height: 190px;
+        width: 100%;
+        height: 5rem;
 
     @media ${device.tabletS} { 
-        width: 100%;
-        height: 100px;
+        width: 14.5rem;
+        width: calc(12rem + 5vw);
+        margin: 0 1%;
+        height: calc(15rem + 0.5vw);
+    }
+    @media ${device.tabletM} { 
+        width: 19.5rem;
+        width: calc(16rem + 5vw);
+    }
+    @media ${device.laptopM} { 
+        width: 25.3rem;
+        width: calc(19rem + 5vw);
+    }
+    @media ${device.laptopL} { 
+        width: 18rem;
+        width: calc(13.2rem + 5vw);
+        padding: 0;
     }
 `
 export const StyledLinkDiv = styled.div`
@@ -46,8 +73,11 @@ export const StyledLink = styled.a`
     height: 28px;
 
     p {
-        line-height: 29px;
-        margin: 2px 0;
+        margin: calc(0.2rem + 0.1vw) 0;
     }
-
+`
+export const StyledLogoImg = styled.img`
+    width: 7rem;
+    height: auto;
+    width: calc(5rem + 3vw);
 `

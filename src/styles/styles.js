@@ -1,5 +1,4 @@
 import styled, {css} from 'styled-components';
-import {device} from './responsivity';
 
 export const CenterCenterWrapStyle = css`
     display: flex;
@@ -38,17 +37,9 @@ export const SpaceBetweenStartNoWrapStyle = css`
     flex-wrap: nowrap;
 `
 export const StyledContainer = styled.div`
-    ${SpaceBetweenCenterWrapStyle}
+    ${SpaceBetweenStartWrapStyle}
     max-width: 1920px;
     min-width: 320px;
     margin: 0 auto;
     padding: 0.5rem 10%;
-
-    @media ${device.mobileL} { 
-            justify-content: center;
-          }
-`
-export const StyledSubContainer = styled.div`
-    ${SpaceBetweenStartWrapStyle}
-    width: 100%;
 `

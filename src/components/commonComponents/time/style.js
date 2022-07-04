@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import {device} from '../../../styles/responsivity';
-import { white, bordergrey, blueGreen, linearGradient } from '../../../styles/colors';
+import {white, bordergrey, blueGreen, linearGradient} from '../../../styles/colors';
 
 export const StyledTimeContainer = styled.div`
     width: 100%;
@@ -11,14 +11,17 @@ export const StyledTimeContainer = styled.div`
     flex-wrap: wrap;
 `
 export const StyledTimeBtn = styled.option`
-    width: 29%;
-    height: 40px;
-    margin: 15px 2%;
+    width: 35%;
+    height: 2.8rem;
+    height: calc(3rem + 0.5vw);
+    margin: 0.8rem 2%;
     border-radius: 1rem;
-    border: 1px solid ${bordergrey};
+    border: 1.3px solid ${bordergrey};
     padding: 0.438rem;
     font-size: 1rem;
-    line-height: 1.4rem;
+    font-size: calc(0.85rem + .5vw);
+    line-height: 2rem;
+    line-height: calc(2rem + .5vw);
     font-weight: 800;
     text-align: center;
     color: ${props => props.timeDesign && `${white}` };
@@ -32,8 +35,8 @@ export const StyledTimeBtn = styled.option`
         border-color: ${blueGreen};
     }
 
-    @media ${device.mobileL} { 
-        width: 40%;
+    @media ${device.laptop} { 
+        width: 29%;
       }
        
 `

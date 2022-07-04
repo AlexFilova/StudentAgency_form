@@ -5,13 +5,18 @@ import PhoneInput from 'react-phone-number-input';
 import { LabelParagraphFont, PlaceholderParagraphFont, WriteInputStyleFont } from '../../../styles/fontStyles';
 import {redPink, bordergrey, darkgrey, blueGreen, lightBlueGreen} from '../../../styles/colors';
 
+const indicatorPositionTop = '-25%';
+const indicatorPositionRight = '8%';
+
 export const StyledErrorMessage = styled.span`
     color: ${redPink};
     font-size: .8rem;
+    font-size: calc(.7rem + .5vw);
 `
 export const StyledSelectBox = styled.div`
+    position: relative;
     width: 100%;
-    height: 74px;
+    min-height: 60px;
     border: 1px solid ${bordergrey};
     border-radius: .5rem;
     margin-bottom: 16px;
@@ -25,12 +30,15 @@ export const StyledLabel = styled.label`
     ${LabelParagraphFont};
     display: block;
     width: 100%;
-    margin: 12px 0 0 15px;
+    margin: 1rem 0 0.6rem 1rem;
+    margin: calc(0.3rem + 0.5vw) 0 calc(0.01rem + 0.5vw) calc(0.6rem + 0.5vw);
     text-align: left;
 `
 export const StyledSelect = styled(Select)`
-    margin: 4px 0 0px 4px;
+    margin-left: 0.4rem;
+    margin-left: calc(0.1rem + .5vw);
     font-size: 1rem;
+    font-size: calc(0.65rem + .5vw);
     font-weight: 400;
     .css-1s2u09g-control {
         width: 100%;
@@ -67,22 +75,25 @@ export const StyledSelect = styled(Select)`
     }
     .css-tlfecz-indicatorContainer {
         position: absolute;
-        top:-30%;
-        right:5%;
+        top: ${indicatorPositionTop};
+        right:${indicatorPositionRight};
         padding:0;
     }
     .css-1gtu0rj-indicatorContainer {
         position: absolute;
-        top:-30%;
-        right:5%;
+        top: ${indicatorPositionTop};
+        right:${indicatorPositionRight};
         padding:0;
+        svg {
+            color: ${blueGreen};
+        }
 
         &:hover,
         &:active,
         &:focus {
             position: absolute;
-            top:-30%;
-            right:5%;
+            top: ${indicatorPositionTop};
+            right:${indicatorPositionRight};
             padding:0;
         }
     }
@@ -98,7 +109,9 @@ export const StyledInput = styled.input`
     ${WriteInputStyleFont}
     width: 90%;
     border: none;
-    margin: 10px 0 0px 13px;
+    margin-left: 0.9rem;
+    margin-left: calc(0.5rem + .5vw);
+    margin-bottom: calc(0.05rem + 0.5vw);
     font-family: 'Signika', sans-serif;
 
     *&:focus{
@@ -114,11 +127,14 @@ export const StyledInput = styled.input`
     }
 `
 export const StyledPhoneInput = styled(PhoneInput)`
-    margin: 8px 16px;
+    margin: 0.3rem 0 0.5rem 1.8rem;
+    margin: 0.3vw 0 0.5vw calc(0.8rem + 0.5vw);
     border: none;
+    font-size: 1rem;
+    font-size: calc(0.65rem + .5vw);
+    font-family: 'Signika', sans-serif;
 
     .PhoneInputCountrySelect {
-        padding: 4px;
         width: auto;
         height: auto;
     }
