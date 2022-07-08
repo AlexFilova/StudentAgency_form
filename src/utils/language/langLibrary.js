@@ -51,10 +51,6 @@ export const translationSk = {
         back:'Späť',
         confirmForm:'Potvrdiť',
     },
-    finalPage: {
-        finalTitle: 'Hotovo!',
-        finalContent: 'Ďakujeme za registráciu. Budeme Vás kontaktovať do dvoch pacovných dní.',
-    },
     footer: {
         aboutUsTitle: 'Kto sme',
         aboutUsContent: 'Naša agentúra zabezpečuje stáže už od roku 1999. Sme najlepší na trhu vďaka dobrým medzinárodným vzťahom a trasparentnosti.',
@@ -81,9 +77,24 @@ export const translationSk = {
         invalidFormatPhoneTooShort: 'Telefónne číslo je príliš krátke.',
         invalidFormatPhoneTooLong: 'Telefónne číslo je príliš dlhé.',
         confirmationError: 'Prosím, potvrdte súhlas so spracovaím Vašich osobných údajov.',
-        noDataErrorTitle: 'Prepáčte!',
-        noDataErrorContent: 'Formulár nie je možné načítať. Ak problém pretrváva dlhšie ako 30 minút kontaktujte nás prosím na telefónnom čísle +421 900 000 000.',
-
+    },
+    finalPage: {
+        title: 'Hotovo!',
+        content: 'Ďakujeme za registráciu. Budeme Vás kontaktovať do dvoch pracovných dní.',
+    },
+    dataNotSent: {
+        title: 'Ľutujeme!',
+        content: 'Formulár sa neodoslal. Prosím skúste formulár vyplniť neskôr. Ak problém pretrváva dlhšie ako 30 minút, kontaktujte nás na telefónnom čísle +421 900 000 000.',
+    },
+    dataNotReceived: {
+        title: 'Prepáčte!',
+        content: 'Formulár nie je možné načítať. Ak problém pretrváva dlhšie ako 30 minút kontaktujte nás prosím na telefónnom čísle +421 900 000 000.',
+    },
+    pageNotFound: {
+        title: 'Oops!',
+        content: 'Táto stránka neexistuje.',
+        button: 'Späť',
+        sideText: 'na domovskú stránku.'
     },
     imagesAlt:{
         logo: 'Najspoľahlivejšia stážová agentúra pre študentov - You can do this',
@@ -145,10 +156,6 @@ export const translationEn = {
         back:'Back',
         confirmForm:'Confirm',
     },
-    finalPage: {
-        finalTitle: 'You are done!',
-        finalContent: 'Thank you for registration. We will contact you within two working days.',
-    },
     footer: {
         aboutUsTitle: 'Who we are',
         aboutUsContent: 'Our agency has been providing internships since 1999. We are the best on the trade because of good international relations and transparency.',
@@ -175,8 +182,24 @@ export const translationEn = {
         invalidFormatPhoneTooShort: 'Phone number is too short.',
         invalidFormatPhoneTooLong: 'Phone number is too long.',
         confirmationError: 'Please confirm the consent to the processing of your personal data.',
-        noDataErrorTitle: 'We are sorry!',
-        noDataErrorContent: 'Unable to load the form. If the problem persists for more than 30 minutes, please contact us at +421 900 000 000.',
+    },
+    finalPage: {
+        title: 'You are done!',
+        content: 'Thank you for registration. We will contact you within two working days.',
+    },
+    dataNotSent: {
+        title: 'We are sorry!',
+        content: 'Your Form has not been sent. Please, try fill in the form later. If the problem persists for more than 30 minutes, please contact us at phone number +421 900 000 000.',
+    },
+    dataNotReceived: {
+        title: 'We are sorry!',
+        content: 'Unable to load the form. If the problem persists for more than 30 minutes, please contact us at phone number +421 900 000 000.',
+    },
+    pageNotFound: {
+        title: 'Oops!',
+        content: 'This page does not exist.',
+        button: 'Back',
+        sideText: 'to home page.'
     },
     imagesAlt:{
         logo: 'The most reliable internship agency for students - You can do this',
