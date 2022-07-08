@@ -36,6 +36,6 @@ const App = () => {
         {showHeaderFooter && <Footer/>}
       </div>
   );
-}
+};
 
 export default App;

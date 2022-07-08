@@ -77,7 +77,7 @@ const BigToggle = ({
             </StyledToggleButtonWrapper>
         </StyledToggle>
     );
-}
+};
 
 
 BigToggle.propTypes = {

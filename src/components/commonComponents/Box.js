@@ -12,7 +12,7 @@ export const FooterBox = ({title, boxContent}) => {
             <BoxParagraphFont>{boxContent}</BoxParagraphFont>
         </StyledBox>
      );
-}
+};
 
 FooterBox.propTypes = {
     title: PropTypes.string,
@@ -47,7 +47,7 @@ export const FooterLinksBox = ({title}) => {
             </StyledLinkDiv>
         </StyledBox>
      );
-}
+};
 
 FooterLinksBox.propTypes = {
     title: PropTypes.string,

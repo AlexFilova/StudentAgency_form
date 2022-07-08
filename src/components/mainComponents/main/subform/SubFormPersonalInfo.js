@@ -4,7 +4,7 @@ import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
 import {StyledSubFormContainer} from './style';
 import {StyledSelectBox, StyledErrorMessage, StyledLabel, StyledPhoneInput} from "../../../commonComponents/selectAndInput/style";
 import Input from "../../../commonComponents/selectAndInput/Input";
-import 'react-phone-number-input/style.css'
+import 'react-phone-number-input/style.css';
 
 const SubFormPersonalInfo = ({
     valName,
@@ -74,7 +74,7 @@ const SubFormPersonalInfo = ({
             </>
         </StyledSubFormContainer>
     );
-}
+};
 
 SubFormPersonalInfo.propTypes = {
     valName: PropTypes.string,

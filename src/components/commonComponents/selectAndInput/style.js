@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Select from 'react-select';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
-import { LabelParagraphFont, PlaceholderParagraphFont, WriteInputStyleFont } from '../../../styles/fontStyles';
+import {LabelParagraphFont, PlaceholderParagraphFont, WriteInputStyleFont} from '../../../styles/fontStyles';
 import {redPink, bordergrey, darkgrey, blueGreen, lightBlueGreen} from '../../../styles/colors';
 
 const indicatorPositionTop = '-25%';
@@ -104,7 +104,6 @@ export const StyledSelect = styled(Select)`
         background-color: ${blueGreen};
     }
 `
-
 export const StyledInput = styled.input`
     ${WriteInputStyleFont}
     width: 90%;

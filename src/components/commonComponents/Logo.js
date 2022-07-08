@@ -24,4 +24,4 @@ export const LogoFooter = () => {
                 <StyledLogoImg src={Logo} alt={t('imagesAlt.logo')} width={80} height={50} />
             </StyledFooterLogoContainer>
     );
-}
+};

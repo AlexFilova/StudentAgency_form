@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types';
 import {useTranslation} from "react-i18next";
-import {StyledFormContainer, StyledPictureContainer, StyledMainWrapper, StyledMainImg, StyledMainImgResponsiveTablet} from "./style";
+import {
+    StyledFormContainer,
+    StyledPictureContainer,
+    StyledMainWrapper,
+    StyledMainImg,
+    StyledMainImgResponsiveTablet
+} from "./style";
 import {StyledContainer} from "../../../styles/styles";
 import pictureDesktop from './../../../images/study_in_broad-for_dektop.svg';
 import pictureTablet from './../../../images/study_in_broad-for_tablet.svg';

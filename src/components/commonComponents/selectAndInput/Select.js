@@ -30,7 +30,7 @@ const Select = ({
         </StyledSelectBox> 
         </>
     );
-}
+};
 
 Select.propTypes = {
     errorMessage: PropTypes.string,

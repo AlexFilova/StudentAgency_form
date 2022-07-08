@@ -7,12 +7,12 @@ import {
     DEFAULT_VALUES_TIME,
     FORM_PAGES,
     USER_ID,
-} from '../../../../utils/common/constants'
+} from '../../../../utils/common/constants';
 import {getKeyFormValues,
         checkIfEveryElementIsTrue,
         getValueOfValueKey,
-} from '../../../../utils/common/functions'
-import {validateFirstPage, validateSecondPage, validateThirdPage} from '../../../../utils/common/validations'
+} from '../../../../utils/common/functions';
+import {validateFirstPage, validateSecondPage, validateThirdPage} from '../../../../utils/common/validations';
 import {
     StyledFormWrapper,
     StyledProgressBar,

@@ -98,7 +98,7 @@ const SubformPreferency = ({
             />
         </StyledSubFormContainer>
     );
-}
+};
 
 SubformPreferency.propTypes = {
     optionsEuCountries: PropTypes.oneOfType([string, arrayOf(shape({

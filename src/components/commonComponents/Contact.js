@@ -11,7 +11,7 @@ const Contact = ({link, linkContent}) => {
             </StyledLink>
         </>
     );
-}
+};
 
 Contact.propTypes = {
     link: PropTypes.string,

@@ -28,7 +28,7 @@ const Input = ({
             </StyledSelectBox>
             </>
     );
-}
+};
 
 Input.propTypes = {
     inputLabel: PropTypes.string,

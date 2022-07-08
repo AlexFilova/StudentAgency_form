@@ -20,6 +20,6 @@ const Footer = () => {
             </StyledFooterContainer> 
         </StyledFooterSection>
     );
-}
+};
 
 export default Footer;

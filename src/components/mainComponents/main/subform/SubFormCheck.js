@@ -61,7 +61,7 @@ const SubFormCheck = ({
             </div>
         </StyledSubFormContainer>
     );
-}
+};
 
 SubFormCheck.propTypes = {
     valLocality: PropTypes.string,

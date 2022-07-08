@@ -64,7 +64,7 @@ const Time = ({onClick, btnStates, errorMessage}) => {
         </>
 
     );
-}
+};
 
 Time.propTypes = {
     onClick: PropTypes.func,
