@@ -85,6 +85,8 @@ SubFormCheck.propTypes = {
     valLastname: PropTypes.string,
     valEmail: PropTypes.string,
     valPhone: PropTypes.string,
+    onCheckBox: PropTypes.func,
+    isChecked: PropTypes.bool,
     confirmationError: PropTypes.string,
 };
 

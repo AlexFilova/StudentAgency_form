@@ -33,6 +33,7 @@ const Select = ({
 }
 
 Select.propTypes = {
+    errorMessage: PropTypes.string,
     htmlFor: PropTypes.string,
     id: PropTypes.string,
     selectLabel: PropTypes.string,
@@ -45,7 +46,6 @@ Select.propTypes = {
         }),
     ]),
     onChange: PropTypes.func,
-    errorMessage: PropTypes.string,
 };
 
 export default Select;

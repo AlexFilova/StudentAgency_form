@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {useTranslation} from "react-i18next";
 import {StyledFormContainer, StyledPictureContainer, StyledMainWrapper, StyledMainImg, StyledMainImgResponsiveTablet} from "./style";
 import {StyledContainer} from "../../../styles/styles";
@@ -22,6 +23,10 @@ const Main = ({headerHeight}) => {
             </StyledContainer>
         </StyledMainWrapper>
     );
-}
+};
+
+Main.propTypes = {
+    setHeaderHeight: PropTypes.func,
+};
 
 export default Main;

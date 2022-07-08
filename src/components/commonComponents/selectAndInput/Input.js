@@ -39,6 +39,7 @@ Input.propTypes = {
     htmlFor: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
+    onKeyPress: PropTypes.func,
 };
 
 export default Input;

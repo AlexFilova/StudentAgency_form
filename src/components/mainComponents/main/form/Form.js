@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {fetchData, postData} from '../../../../api/apiCall';
 import {useTranslation} from 'react-i18next';
 import {
@@ -443,6 +444,10 @@ const Form = ({headerHeight}) => {
             }
         </>
     );
-}
+};
+
+Form.propTypes = {
+    setHeaderHeight: PropTypes.func,
+};
 
 export default Form;

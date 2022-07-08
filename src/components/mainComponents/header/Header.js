@@ -1,4 +1,5 @@
 import {useRef, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {useTranslation} from 'react-i18next';
 import { 
     StyledHeaderSection,
@@ -73,6 +74,10 @@ const Header = ({setHeaderHeight}) => {
                 </StyledContainerHeader>
             </StyledHeaderSection>   
     );
-}
+};
+
+Header.propTypes = {
+    setHeaderHeight: PropTypes.func,
+};
 
 export default Header;

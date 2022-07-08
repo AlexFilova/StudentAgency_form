@@ -4,7 +4,7 @@ import {StyledBox, StyledLinkDiv} from './style'
 import {BoxParagraphFont, BoxTitleFont} from '../../styles/fontStyles'
 import Contact from './Contact';
 
-export const FooterBox = ({title, boxContent, linkContact, link, linkContent}) => {
+export const FooterBox = ({title, boxContent}) => {
     
     return ( 
         <StyledBox>
@@ -20,7 +20,7 @@ FooterBox.propTypes = {
 };
 
 
-export const FooterLinksBox = ({title, link, linkContent}) => {
+export const FooterLinksBox = ({title}) => {
 
     const { t } = useTranslation();
     
@@ -51,6 +51,4 @@ export const FooterLinksBox = ({title, link, linkContent}) => {
 
 FooterLinksBox.propTypes = {
     title: PropTypes.string,
-    link: PropTypes.string,
-    linkContent: PropTypes.string,
 };

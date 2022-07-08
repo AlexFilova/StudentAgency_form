@@ -1,4 +1,4 @@
-import PropTypes, {string, shape} from 'prop-types';
+import PropTypes, {string, shape, arrayOf} from 'prop-types';
 import {useTranslation} from "react-i18next";
 import {SubFormTitleFont, SmallTitleFont} from "../../../../styles/fontStyles";
 import Select from '../../../commonComponents/selectAndInput/Select';
@@ -101,6 +101,21 @@ const SubformPreferency = ({
 }
 
 SubformPreferency.propTypes = {
+    optionsEuCountries: PropTypes.oneOfType([string, arrayOf(shape({
+        label: string,
+        value: string
+        })
+    )]),
+    optionsUsaStates: PropTypes.oneOfType([string, arrayOf(shape({
+        label: string,
+        value: string
+        })
+    )]),
+    optionsJobs: PropTypes.oneOfType([string, arrayOf(shape({
+        label: string,
+        value: string
+        })
+    )]),
     designToggleBtnOne: PropTypes.bool,
     designToggleBtnTwo: PropTypes.bool,
     setdesignToggleBtnOne: PropTypes.func,
