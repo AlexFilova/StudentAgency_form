@@ -1,4 +1,4 @@
-import PropTypes, {string, array} from 'prop-types';
+import PropTypes, {string, array, shape} from 'prop-types';
 import {StyledSelectBox, StyledLabel, StyledSelect, StyledErrorMessage} from "./style";
 
 const Select = ({
@@ -39,7 +39,11 @@ Select.propTypes = {
     placeholder: PropTypes.string,
     isSearchable: PropTypes.bool,
     options: PropTypes.oneOfType([array, string]),
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([string, shape({
+        label: string,
+        value: string
+        }),
+    ]),
     onChange: PropTypes.func,
     errorMessage: PropTypes.string,
 };
