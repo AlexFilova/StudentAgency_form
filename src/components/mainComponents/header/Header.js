@@ -1,3 +1,4 @@
+import {useRef, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import { 
     StyledHeaderSection,
@@ -13,19 +14,34 @@ import {
 } from "./style";
 import {LogoHeader} from "../../commonComponents/Logo";
 
-const Header = () => {
+const Header = ({setHeaderHeight}) => {
+    const headerRef = useRef(null)
+
+    const {i18n} = useTranslation();
+    const resolved =  i18n.resolvedLanguage;
 
     const lngs = {
         sk: {nativeName: 'Sk'},
         en: {nativeName: 'En'}
       };
 
-    const {i18n} = useTranslation();
-    const resolved =  i18n.resolvedLanguage;
+    useEffect(() => {
+       setHeaderHeight(updateHeaderHeight)
+       // eslint-disable-next-line
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener('resize', updateHeaderHeight)
+        // eslint-disable-next-line
+    }, [])
+
+    const updateHeaderHeight = () => {
+        setHeaderHeight(headerRef.current.clientHeight)
+    }
 
     return (
-            <StyledHeaderSection>
-                <StyledContainerHeader>
+            <StyledHeaderSection ref={headerRef}>
+                <StyledContainerHeader >
                     <LogoHeader />
                     <StyledSocialLanguageElement>
                         <StyledIconsDiv>

@@ -5,7 +5,7 @@ import pictureDesktop from './../../../images/study_in_broad-for_dektop.svg';
 import pictureTablet from './../../../images/study_in_broad-for_tablet.svg';
 import Form from "./form/Form";
 
-const Main = () => {
+const Main = ({headerHeight}) => {
 
     const { t } = useTranslation();
 
@@ -13,7 +13,7 @@ const Main = () => {
         <StyledMainWrapper>
             <StyledContainer>
                 <StyledFormContainer>
-                    <Form />
+                    <Form headerHeight={headerHeight} />
                 </StyledFormContainer>
                 <StyledPictureContainer>
                         <StyledMainImg src={pictureDesktop} alt={t('imagesAlt.internshipStudy')} />
