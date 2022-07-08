@@ -6,7 +6,7 @@ import { LabelParagraphFont, PlaceholderParagraphFont, WriteInputStyleFont } fro
 import {redPink, bordergrey, darkgrey, blueGreen, lightBlueGreen} from '../../../styles/colors';
 
 const indicatorPositionTop = '-25%';
-const indicatorPositionRight = '8%';
+const indicatorPositionRight = '5%';
 
 export const StyledErrorMessage = styled.span`
     color: ${redPink};

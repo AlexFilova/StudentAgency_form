@@ -70,7 +70,7 @@ export const StyledNextButton = styled.button`
     background-color: ${props => !props.nextBtnActive ? `${darkgrey} ` : `${blueGreen}`};
     border-radius: 6.25rem;
     border: none;
-    box-shadow: ${shadowButton};
+    box-shadow: ${props => props.nextBtnActive && `${shadowButton}`};
 `
 export const StyledConfirmButton = styled.button`
     ${ButtonFont}

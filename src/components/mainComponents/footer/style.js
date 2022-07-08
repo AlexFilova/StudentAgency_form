@@ -4,7 +4,7 @@ import {grey} from '../../../styles/colors';
 
 export const StyledFooterSection = styled.footer`
     max-width: 1920px;
-    min-width: 320px;
+    min-width: 280px;
     margin: 0 auto;
     padding: 0.5rem 10%;
 `
@@ -15,5 +15,5 @@ export const StyledFooterContainer = styled.div`
 export const StyledFooterWrapper = styled.div`
     ${SpaceBetweenStartWrapStyle}
     width: 100%;
-    margin-top: 30px;
+    margin: 30px 0;
     `

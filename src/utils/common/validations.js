@@ -46,7 +46,5 @@ export const validateThirdPage = (values, missingConfirmation) => {
     if(values === false) {
         errors.confirmation = missingConfirmation;
     }
-    console.log('errors');
-    console.log(errors);
     return errors;
 }
