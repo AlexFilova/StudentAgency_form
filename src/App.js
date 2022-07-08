@@ -6,21 +6,12 @@ import PostApiError from './components/commonComponents/sideComponents/PostApiEr
 import FinalPage from './components/commonComponents/sideComponents/FinalPage';
 import PageNotExist from './components/commonComponents/sideComponents/PageNotExist';
 import {Routes, Route} from 'react-router-dom';
+import {location, routes} from './utils/common/constants';
 
 const App = () => {
 
   const [showHeaderFooter, setShowHeaderFooter] = useState(false)
   const [headerHeight, setHeaderHeight] = useState('');
-  console.log('headerHeight');
-  console.log(headerHeight);
-
-  const location = window.location.href;
-  
-  const routes = {
-    form: 'http://localhost:3000/',
-    noDataSend: 'http://localhost:3000/no_data_sent',
-    done: 'http://localhost:3000/done',
-  }
 
   useEffect(() => {
     const identifyOneOfPath = Object.values(routes).map(route => route === location);
