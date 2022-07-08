@@ -8,25 +8,24 @@ import {
     StyledSideImgDiv,
     StyledSideImg,
 } from './style';
-import finalPicture from '../../../images/study_in_broad-for_phone.svg';
+import errorPicture from '../../../images/error.svg';
 
-const FinalPage = () => {
-
+const PostApiError = () => {
     const { t } = useTranslation();
     
     return (
         <StyledSideContainer>
             <StyledSideSubPage>
                 <StyledSideDivBox>
-                    <StyledSideTitle done>{t('finalPage.title')}</StyledSideTitle>
-                    <StyledSideContent>{t('finalPage.content')}</StyledSideContent>
+                    <StyledSideTitle done>{t('dataNotSent.title')}</StyledSideTitle>
+                    <StyledSideContent>{t('dataNotSent.content')}</StyledSideContent>
                 </StyledSideDivBox>
                 <StyledSideImgDiv>
-                    <StyledSideImg src={finalPicture} alt={t('imagesAlt.oopsError')}/>
+                    <StyledSideImg src={errorPicture} alt={t('imagesAlt.oopsError')}/>
                 </StyledSideImgDiv>
             </StyledSideSubPage>
         </StyledSideContainer>
      );
 };
-
-export default FinalPage;
+ 
+export default PostApiError;

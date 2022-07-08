@@ -9,7 +9,7 @@ import {
 } from './style';
 import errorPicure from '../../../images/error.svg';
 
-const ApiError = () => {
+const GetApiError = () => {
 
     const { t } = useTranslation();
     
@@ -19,11 +19,11 @@ const ApiError = () => {
                 <StyledErrorImg src={errorPicure} alt={t('imagesAlt.oopsError')} />
             </StyledErrorDivImg>
             <StyledSideErrorDivBox>
-                <StyledSideTitle>{t('errorMessages.noDataErrorTitle')}</StyledSideTitle>
-                <StyledSideContent>{t('errorMessages.noDataErrorContent')}</StyledSideContent>
+                <StyledSideTitle>{t('dataNotReceived.title')}</StyledSideTitle>
+                <StyledSideContent>{t('dataNotReceived.content')}</StyledSideContent>
             </StyledSideErrorDivBox>
         </StyledErrorSubPage>
      );
 };
 
-export default ApiError;
+export default GetApiError;
