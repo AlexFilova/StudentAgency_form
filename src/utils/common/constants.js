@@ -1,4 +1,6 @@
-export const defaultValuesForm = {
+import { v4 as uuidv4 } from 'uuid';
+
+export const DEFAULT_VALUES_FORM = {
     locality: 'EU',
     localitySpecificationEu:'',
     localitySpecificationUsa:'',
@@ -8,9 +10,9 @@ export const defaultValuesForm = {
     lastname: '',
     email: '',
     phone: '+421',
-}
+};
 
-export const defaultValuesTimeButton = [
+export const DEFAULT_VALUES_TIME = [
     {
         id: 1,
         btnBoolean: false,
@@ -35,6 +37,8 @@ export const defaultValuesTimeButton = [
         id: 6,
         btnBoolean: false,
     },
-]
+];
 
-export const FormPages = [0, 1, 2];
+export const FORM_PAGES = [0, 1, 2];
+
+export const USER_ID = uuidv4();
